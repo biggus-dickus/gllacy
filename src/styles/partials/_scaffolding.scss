@@ -1,0 +1,40 @@
+html { box-sizing: border-box; }
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+body {
+  min-width: $xs;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.375;
+  color: $text-color-base;
+  background-color: $background-color-base;
+}
+
+button,
+input,
+textarea { font-family: inherit; }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input[type='number'] { -moz-appearance: textfield; }
+
+// Placeholders and Overflow
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; } // FF 19+
+input:-moz-placeholder { text-overflow: ellipsis; }
+
+/* Smooth opacity transition for input placeholder on focus */
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder {opacity: .5; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder          {opacity: .5; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder           {opacity: .5; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder      {opacity: .5; transition: opacity 0.3s ease;}

@@ -1,0 +1,30 @@
+.catalog {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    flex-basis: 23.45%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.featured-products {
+  @extend .catalog;
+}
+
+.product-card {
+  @extend .catalog__item;
+  text-align: center;
+
+  &:hover {
+    background-color: get-color(primary, light, .4);
+  }
+
+  &__figure {
+    margin: 0;
+  }
+}

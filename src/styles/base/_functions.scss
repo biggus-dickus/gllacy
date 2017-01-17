@@ -1,0 +1,19 @@
+// Get the color from color map
+@function get-color($name: 'primary', $variant: $default-key, $opacity: 1) {
+  $color: null;
+
+  // Get the color spectrum
+  $color-spectrum: map-get($palette, $name);
+
+  // Get the color variant
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  // Set the alpha of the color
+  @if $opacity {
+    $color: rgba($color, $opacity);
+  }
+
+  @return $color;
+}

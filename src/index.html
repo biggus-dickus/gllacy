@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  //= templates/head.html
+  <title>Главная — Gllacy Shop</title>
+</head>
+<body>
+
+  <header class="header container">
+    <div class="header__logo">
+      <img src="img/gllacy-logo.svg" width="153" height="63" alt="Gllacy logo">
+    </div>
+
+    //= templates/header-menu.html
+
+  </header>
+
+  <main class="container">
+
+    <section class="slider">
+      <ul class="carousel">
+        <li class="carousel__item">
+          <h1 class="slider__text">Крем-брюле и&nbsp;пломбир с&nbsp;малиновым джемом</h1>
+          <a href="#" class="btn btn--primary">Давайте оба!</a>
+        </li>
+      </ul>
+
+      <i class="slider__dot active"></i>
+      <i class="slider__dot"></i>
+      <i class="slider__dot"></i>
+    </section>
+
+
+
+    <dl class="specials">
+      <dt class="specials__offer">Малинка даром!</dt>
+      <dd class="specials__description">
+        При покупке 2&nbsp;кг&nbsp;фруктового мороженого добавим в&nbsp;ваш заказ банку малинового варенья бесплатно.
+        <a href="#" class="btn btn--primary">Хочу варенье!</a>
+      </dd>
+      <dt class="specials__offer">Шоколадки даром!</dt>
+      <dd class="specials__description">
+        При покупке 2&nbsp;кг&nbsp;пломбира добавим в&nbsp;ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.
+        <a href="#" class="btn btn--primary">Хочу шоколадки!</a>
+      </dd>
+    </dl>
+
+
+
+    <section class="featured-products">
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/01.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с&nbsp;апельсиновым джемом и&nbsp;цитрусовой стружкой
+          </figcaption>
+        </figure>
+        <mark class="product-card__badge">Хит</mark>
+        <strong class="product-card__price">
+          310 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/02.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-кофейное с&nbsp;кусочками шоколада
+          </figcaption>
+        </figure>
+        <mark class="product-card__badge">Хит</mark>
+        <strong class="product-card__price">
+          380 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/03.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-клубничное с&nbsp;присыпкой из&nbsp;белого шоколада
+          </figcaption>
+        </figure>
+        <mark class="product-card__badge">Хит</mark>
+        <strong class="product-card__price">
+          355 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/04.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное крем-брюле с&nbsp;карамельной подливкой
+          </figcaption>
+        </figure>
+        <mark class="product-card__badge">Хит</mark>
+        <strong class="product-card__price">
+          415 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+    </section>
+
+
+
+    <section class="about">
+      <h2 class="title">Магазин Глейси&nbsp;&mdash; это онлайн- и&nbsp;офлайн-магазин по&nbsp;продаже мороженого собственного производства на&nbsp;развес</h2>
+      <ul class="features">
+        <li class="features__item features__item--manufacture">
+          Всё наше мороженое изготавливается на&nbsp;собственном производстве, с&nbsp;использованием современного оборудования и&nbsp;проверенных временем технологий.
+        </li>
+        <li class="features__item features__item--farmers">
+          Закупка ингредиентов производится только у&nbsp;проверенных фермерских хозяйств и&nbsp;компаний, с&nbsp;которыми нас связывает долговременное сотрудничество.
+        </li>
+        <li class="features__item features__item--eco">
+          Для приготовления мороженого используются настоящие сливки и&nbsp;молоко высочайшего качества. Все дополнительные ингредиенты и&nbsp;добавки произведены из&nbsp;натурального, экологически чистого сырья.
+        </li>
+        <li class="features__item features__item--temperature">
+          Доставка нашего мороженого до&nbsp;заказчиков осуществляется в&nbsp;специальном термопаке, который не&nbsp;дает мороженому растаять в&nbsp;пути и&nbsp;позволяет сохранить превосходный вкус.
+        </li>
+      </ul>
+    </section>
+
+
+
+    <section class="blog">
+      <article class="blog__item blog__item--news">
+        <span class="blog__item-category">Новое в нашем блоге</span>
+        <h3 class="blog__title">
+          <a href="#">10&nbsp;способов сервировки фруктовых щербетов к&nbsp;столу</a>
+        </h3>
+      </article>
+
+      <form action="?" method="post" class="blog__item blog__item--subscribe">
+        <p>Подпишитесь на&nbsp;нашу сладкую рассылку, и&nbsp;будете всегда в&nbsp;курсе всего самого вкусного, что у&nbsp;нас происходит. Обещаем не&nbsp;спамить и&nbsp;не&nbsp;слать всякой ненужной ерунды. Честно =)</p>
+        <input type="email" name="subscribe-email" class="input-field" placeholder="Электронная почта" required>
+        <input type="submit" class="btn btn--primary" value="Отправить">
+      </form>
+    </section>
+  </main>
+
+  <div class="map">
+    <img width="1200" height="429" src="//placehold.it/1200x429" alt="Gllacy map">
+    <address class="map__address">
+      <p>Адрес главного офиса и&nbsp;офлайн-магазина:
+        <strong>ул. Большая Конюшенная, 19/8, Санкт-Петербург</strong>
+      </p>
+
+      <p>Для заказов по&nbsp;телефону:
+        <strong>8 812 450-25-25</strong>
+        (с&nbsp;10&nbsp;до&nbsp;20&nbsp;ежедневно)
+      </p>
+
+      <a href="#" class="btn btn--primary">Форма обратной связи</a>
+    </address>
+  </div>
+
+  //= templates/footer.html
+</body>
+</html>

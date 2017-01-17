@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  //= templates/head.html
+  <title>Сливочное — Каталог — Gllacy Shop</title>
+</head>
+<body>
+
+  <header class="header container">
+    <a class="header__logo" href="/">
+      <img src="img/gllacy-logo.svg" width="153" height="63" alt="Gllacy logo">
+    </a>
+
+    //= templates/header-menu.html
+
+    <nav class="breadcrumbs">
+      <ul class="ib">
+        <li class="ib__item breadcrumbs__item">
+          <a class="breadcrumbs__link" href="/">Главная</a>
+        </li>
+        <li class="ib__item breadcrumbs__item">
+          <a class="breadcrumbs__link" href="#">Каталог</a>
+        </li>
+        <li class="ib__item breadcrumbs__item">
+          <a class="breadcrumbs__link" href="#">Сливочное</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main class="container">
+    <h1 class="main-header">Сливочное мороженое</h1>
+
+    <form action="?" method="get" class="filter-form">
+      <div class="filter-form__group">
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Сортировка:</legend>
+          <select name="sort-type" id="sort-type" class="filter-form__select">
+            <option value="popularity">по популярности</option>
+            <option value="cheap-first">сначала недорогие</option>
+            <option value="expensive-first">сначала дорогие</option>
+            <option value="fat-content">по жирности</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Цена: 100 руб. — 500 руб.</legend>
+          <input class="filter-form" name="price-range" type="range" min="100" max="1000" step="100">
+        </fieldset>
+
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Жирность:</legend>
+          <input class="filter-form__radio" id="fat-0" value="fat-0" type="radio" name="fat-content">
+          <label for="fat-0" class="filter-form__radio-label">0%</label>
+          <input class="filter-form__radio" id="fat-10" value="fat-10" type="radio" name="fat-content" checked>
+          <label for="fat-10" class="filter-form__radio-label">до&nbsp;10%</label>
+          <input class="filter-form__radio" id="fat-30" value="fat-30" type="radio" name="fat-content">
+          <label for="fat-30" class="filter-form__radio-label">до&nbsp;30%</label>
+          <input class="filter-form__radio" id="fat-30+" value="fat-30+" type="radio" name="fat-content">
+          <label for="fat-30+" class="filter-form__radio-label">выше 30%</label>
+        </fieldset>
+      </div>
+
+      <div class="filter-form__group">
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Наполнители:</legend>
+          <input class="filter-form__checkbox" type="checkbox" id="chocolate-filler" name="chocolate-filler" checked>
+          <label for="chocolate-filler">шоколадные</label>
+          <input class="filter-form__checkbox" type="checkbox" id="sugar-filler" name="sugar-filler" checked>
+          <label for="sugar-filler">сахарные присыпки</label>
+          <input class="filter-form__checkbox" type="checkbox" id="fruit-filler" name="fruit-filler">
+          <label for="fruit-filler">фрукты</label>
+          <input class="filter-form__checkbox" type="checkbox" id="syrup-filler" name="syrup-filler">
+          <label for="syrup-filler">сиропы</label>
+          <input class="filter-form__checkbox" type="checkbox" id="jam-filler" name="jam-filler">
+          <label for="jam-filler">джемы</label>
+        </fieldset>
+        <input type="submit" class="filter-form__submit" value="Применить">
+      </div>
+    </form>
+
+
+    <section class="catalog">
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/01.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с апельсиновым джемом и цитрусовой стружкой
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          310 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/02.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-кофейное с кусочками шоколада
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          380 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/03.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-клубничное с присыпкой из белого шоколада
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          355 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/04.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное крем-брюле с карамельной подливкой
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          415 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/05.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с брусничным джемом
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          325 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/06.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-черничное с цельными ягодами черники
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          410 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/07.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-лимонное с карамельной присыпкой
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          375 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/08.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с шоколадной стружкой
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          320 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/09.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочно-ванильное с кусочками шоколада
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          440 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/10.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с ментоловым сиропом
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          435 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/11.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с кусочками черного шоколада
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          355 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+
+      <article class="product-card">
+        <figure class="product-card__figure">
+          <img src="img/catalogue/12.png" width="267" height="267" alt="Gllacy icecream" class="product-card__img">
+          <figcaption class="product-card__figcaption">
+            Сливочное с мятным сиропом
+          </figcaption>
+        </figure>
+        <strong class="product-card__price">
+          420 &#8381;/<span class="product-card__price-unit">кг</span>
+        </strong>
+        <a href="#" class="btn btn--primary">В&nbsp;корзину</a>
+      </article>
+    </section>
+
+    <ul class="pagination">
+      <li class="pagination__item"><a class="pagination__link inactive">&lt;</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link current">1</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link">4</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link">5</a></li>
+      <li class="pagination__item"><a href="#" class="pagination__link">&gt;</a></li>
+    </ul>
+  </main>
+
+  //= templates/footer.html
+</body>
+</html>

@@ -1,0 +1,47 @@
+// Default button dimensions
+$btn-horiz-padding: .95em;
+$btn-vert-padding: .68em;
+$btn-border-radius: $btn-horiz-padding * 2;
+$btn-fz: 18px;
+
+
+.btn {
+  @extend .ib__item;
+  @extend %ellipsis;
+  border: 1px solid transparent;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  @include button-size($btn-vert-padding, $btn-horiz-padding, $btn-fz, 1, $btn-border-radius);
+  @include transition($property: #{color, background});
+
+  &:disabled,
+  &:disabled[class*="btn--"] {
+    font-weight: 400;
+    color: #999;
+    background: #dedede;
+    box-shadow: none;
+    text-shadow: none;
+    pointer-events: none;
+  }
+
+  &:active {  transform: translateY(1px);  }
+
+  &.btn--primary {
+    font-weight: 700;
+    color: #fff;
+    background-image: linear-gradient(#f26843, #e74a35);
+    box-shadow: 0 -0.11em 0.11em rgba(172, 16, 0, 0.6) inset;
+    text-shadow: 0 0.11em 0.27em rgba(160, 32, 11, 0.75);
+
+    &:hover {  background-image: linear-gradient(#f58669, #ec6e5d);  }
+
+    &:active {
+      color: #fceeec;
+      background-image: linear-gradient(#d74531, #e1613e);
+      box-shadow: 0 0.11em 0.11em #942718 inset;
+    }
+  }
+}
