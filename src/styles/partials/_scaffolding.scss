@@ -5,7 +5,7 @@ html { box-sizing: border-box; }
 *::after { box-sizing: inherit; }
 
 body {
-  min-width: $xs;
+  min-width: $xs - $gutter * 2;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: $font-size-base;
   line-height: 1.375;
@@ -17,7 +17,10 @@ button,
 input,
 textarea { font-family: inherit; }
 
-img {
+img,
+iframe,
+video,
+object {
   max-width: 100%;
   height: auto;
 }

@@ -5,7 +5,8 @@
 
   &__item {
     display: flex;
-    flex-basis: 23.45%;
+    flex-basis: 267px;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -26,5 +27,11 @@
 
   &__figure {
     margin: 0;
+  }
+
+  &__img {
+    width: 267px;
+    height: 267px;
+    border-radius: 50%;
   }
 }
