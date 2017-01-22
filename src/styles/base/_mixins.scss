@@ -80,3 +80,21 @@
 @mixin transition($property: all, $time: .25s, $timing-function: ease-in-out) {
   transition: $property $time $timing-function;
 }
+
+// Absolute centering
+@mixin abs-center($by-x-axis: 50%, $by-y-axis: 50%) {
+  position: absolute;
+  @if $by-x-axis and $by-y-axis {
+    left: $by-x-axis;
+    top: $by-y-axis;
+    transform: translate(-$by-x-axis, -$by-y-axis);
+  }
+  @else if $by-x-axis and $by-y-axis == false {
+    left: $by-x-axis;
+    transform: translateX(-$by-x-axis);
+  }
+  @else if $by-x-axis == false and $by-y-axis {
+    top: $by-y-axis;
+    transform: translateY(-$by-y-axis);
+  }
+}

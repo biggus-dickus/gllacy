@@ -5,8 +5,7 @@
 
   &__item {
     display: flex;
-    flex-basis: 267px;
-    flex-grow: 1;
+    flex: 1 1 267px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -19,6 +18,7 @@
 
 .product-card {
   @extend .catalog__item;
+  @include transition();
   text-align: center;
 
   &:hover {

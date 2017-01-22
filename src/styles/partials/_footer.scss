@@ -3,4 +3,10 @@
     width: 108px;
     height: 38px;
   }
+
+  &__logo-link {
+    @include transition();
+
+    &:hover {  opacity: .7;  }
+  }
 }

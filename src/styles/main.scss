@@ -3,6 +3,9 @@
 // Vendor components
 @import "vendor/normalize";
 
+// Generated code (sprites, icons, etc.)
+@import "generated/sprite";
+
 // Base components
 @import "base/mixins";
 @import "base/functions";
@@ -14,6 +17,7 @@
 @import "partials/fonts";
 @import "partials/footer";
 @import "partials/grid";
+@import "partials/menu";
 @import "partials/typography";
 @import "partials/scaffolding";
 @import "partials/utils";

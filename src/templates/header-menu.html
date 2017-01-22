@@ -1,24 +1,33 @@
 <nav class="header__nav">
   <ul class="main-menu">
     <li class="main-menu__item">
-      <a href="catalog.html">Каталог</a>
+      <a class="main-menu__link" href="catalog.html">Каталог</a>
     </li>
-    <li class="main-menu__item"><a href="#">Доставка и&nbsp;оплата</a></li>
-    <li class="main-menu__item"><a href="#">О компании</a></li>
+    <li class="main-menu__item">
+      <a class="main-menu__link" href="#">Доставка и&nbsp;оплата</a>
+    </li>
+    <li class="main-menu__item">
+      <a class="main-menu__link" href="#">О компании</a>
+    </li>
   </ul>
 
   <ul class="user-menu">
     <li class="user-menu__item">
-      <button class="btn icon-search">Поиск</button>
+      <form action="?" name="search-form" class="search-form">
+        <input class="search-form__input" type="search" name="search-query" id="search-query" placeholder="Что ищем?" required>
+        <label for="search-query" class="icon-search search-form__label">Поиск</label>
+        <button class="search-form__btn">Искать</button>
+      </form>
     </li>
     <li class="user-menu__item">
-      <a href="#">Вход</a>
+      <a class="user-menu__link user-menu__link--login" href="#">Вход</a>
     </li>
     <li class="user-menu__item">
-      <a href="#">Пусто</a>
+      <a class="user-menu__link user-menu__link--cart" href="#">Пусто</a>
     </li>
   </ul>
 </nav>
+
 <address class="header__address">
   <span class="header__hours">С&nbsp;10&nbsp;до&nbsp;20, ежедневно</span>
   <span class="header__phone">8 812 450-25-25</span>

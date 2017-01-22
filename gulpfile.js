@@ -4,18 +4,20 @@
  * Components and links
  */
 var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  watch = require('gulp-watch'),
-  autoprefixer = require('gulp-autoprefixer'),
-  uglify = require('gulp-uglify'),
-  cmq = require('gulp-combine-mq'),
-  cssnano = require('gulp-cssnano'),
-  rename = require('gulp-rename'),
-  rigger = require('gulp-rigger'),
-  rimraf = require('rimraf'),
-  pngquant = require('imagemin-pngquant'),
-  imagemin = require('gulp-imagemin'),
-  htmlmin = require('gulp-htmlmin'),
+    sass = require('gulp-sass'),
+    watch = require('gulp-watch'),
+    autoprefixer = require('gulp-autoprefixer'),
+    uglify = require('gulp-uglify'),
+    cmq = require('gulp-combine-mq'),
+    cssnano = require('gulp-cssnano'),
+    merge = require('merge-stream'),
+    rename = require('gulp-rename'),
+    rigger = require('gulp-rigger'),
+    rimraf = require('rimraf'),
+    spritesmith = require('gulp.spritesmith'),
+    pngquant = require('imagemin-pngquant'),
+    imagemin = require('gulp-imagemin'),
+    htmlmin = require('gulp-htmlmin'),
 
   // BrowserSync
   browserSync = require("browser-sync"),
@@ -37,7 +39,8 @@ var path = {
     js: 'src/js/app.js',
     styles: 'src/styles/main.scss',
     img: 'src/img/**/*.*',
-    sprite: 'src/img/sprite/input/*.png',
+    sprite: 'src/img/sprite-src/*.png',
+    spritesheet: 'src/styles/generated/',
     fonts: 'src/fonts/**/*.*'
   },
   watch: {
@@ -122,6 +125,27 @@ gulp.task('img:build', function() {
     }))
     .pipe(gulp.dest(path.build.img))
     .pipe(browserSync.stream());
+});
+
+gulp.task('sprite:build', function() {
+  // Generate our spritesheet
+  var spriteData = gulp.src(path.src.sprite).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    imgPath: '../img/sprite/sprite.png', // relative path to sprite.png from generated CSS
+    padding: 2
+  }));
+
+  // Pipe image stream onto disk
+  var imgStream = spriteData.img
+    .pipe(gulp.dest(path.build.sprite));
+
+  // Pipe CSS stream onto disk
+  var cssStream = spriteData.css
+    .pipe(gulp.dest(path.src.spritesheet));
+
+  // Return a merged stream to handle both `end` events
+  return merge(imgStream, cssStream);
 });
 
 
