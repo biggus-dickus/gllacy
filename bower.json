@@ -1,0 +1,24 @@
+{
+  "name": "gllacy",
+  "description": "Just another HTML Academy design",
+  "main": "",
+  "authors": [
+    "Max Maslenko"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/biggus-dickus/gllacy",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1"
+  },
+  "dependencies": {
+    "normalize-css": "^5.0.0"
+  }
+}

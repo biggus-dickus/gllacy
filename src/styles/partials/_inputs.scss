@@ -1,0 +1,11 @@
+%input-field,
+.input-field {
+  @include placeholder-color(get-color(accent, light));
+  display: inline-block;
+  padding: .85em 1.07em .8em;
+  border: 1px solid get-color(secondary, darker);
+  border-radius: .285em;
+  font-size: 14px;
+  line-height: 1;
+  color: $text-color-secondary;
+}

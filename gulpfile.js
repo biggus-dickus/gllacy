@@ -36,7 +36,7 @@ var path = {
   src: {
     html: 'src/*.html',
     tpl: 'src/templates/*.tpl.html',
-    js: 'src/js/app.js',
+    js: 'src/js/main.js',
     styles: 'src/styles/main.scss',
     img: 'src/img/**/*.*',
     sprite: 'src/img/sprite-src/*.png',
@@ -109,7 +109,7 @@ gulp.task('js:build', function() {
   gulp.src(path.src.js)
     .pipe(rigger())
     .pipe(uglify())
-    .pipe(rename('app.min.js'))
+    .pipe(rename('main.min.js'))
     .pipe(gulp.dest(path.build.js))
     .pipe(reload({stream: true}));
 });
@@ -171,22 +171,22 @@ gulp.task('webserver', function () {
 
 
 gulp.task('watch', function() {
-  watch([path.watch.html], function(event, cb) {
+  watch([path.watch.html], function() {
     gulp.start('html:build');
   });
-  watch([path.watch.tpl], function(event, cb) {
+  watch([path.watch.tpl], function() {
     gulp.start('tpl:build');
   });
-  watch([path.watch.styles], function(event, cb) {
+  watch([path.watch.styles], function() {
     gulp.start('css:build');
   });
-  watch([path.watch.js], function(event, cb) {
+  watch([path.watch.js], function() {
     gulp.start('js:build');
   });
-  watch([path.watch.img], function(event, cb) {
+  watch([path.watch.img], function() {
     gulp.start('img:build');
   });
-  watch([path.watch.fonts], function(event, cb) {
+  watch([path.watch.fonts], function() {
     gulp.start('fonts:build');
   });
 });

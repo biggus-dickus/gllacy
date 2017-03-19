@@ -1,0 +1,46 @@
+.specials {
+  @extend .clearfix;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 40px;
+
+  &__offer {
+    @extend .col-half;
+    min-height: 229px;
+    padding: 20px;
+    border-radius: 1em;
+    font-weight: 700;
+    text-align: right;
+
+    &.specials__offer--raspberry {
+      @extend .col-half__left;
+      @include breakpoint(max-width $md) {  margin-bottom: 30px;  }
+      background: #93061a url("../img/bg/raspberry.png") 0 0 / cover;
+    }
+
+    &.specials__offer--chocolate {
+      @extend .col-half__right;
+      background: #643d2b url("../img/bg/chocolate.png") 0 0 / cover;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: .55em;
+    font-size: 35px;
+    line-height: 1.17;
+    text-align: left;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: left;
+  }
+
+  &__btn {
+    @extend .btn;
+    @extend .btn--primary;
+    margin-top: 25px;
+  }
+}

@@ -1,0 +1,22 @@
+.about {
+  padding: 28px 33px 28px 21px;
+  border-radius: 1rem;
+  margin-bottom: 40px;
+  color: $text-color-secondary;
+  background: url("../img/bg/waffle-res.png") 0 0 repeat;
+
+  &__title {
+    @extend .title;
+    font-weight: 600;
+    margin-top: 0;
+  }
+}
+
+.features {
+  @extend .ib;
+
+  &__item {
+    @extend .ib__item;
+    font-size: 16px;
+  }
+}

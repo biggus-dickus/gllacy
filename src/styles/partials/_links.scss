@@ -1,0 +1,15 @@
+.link {
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient($transparent-white, $transparent-white) no-repeat 0 1.28em / 100% 1px;
+
+  &:hover {
+    color: get-color(accent, link);
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 1.28em / 100% 1px;
+  }
+
+  &:active {
+    color: darken(get-color(accent, link), 5%);
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 1.28em / 100% 1px;
+  }
+}

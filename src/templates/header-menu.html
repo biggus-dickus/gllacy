@@ -1,34 +1,75 @@
-<nav class="header__nav">
-  <ul class="main-menu">
-    <li class="main-menu__item">
-      <a class="main-menu__link" href="catalog.html">Каталог</a>
-    </li>
-    <li class="main-menu__item">
-      <a class="main-menu__link" href="#">Доставка и&nbsp;оплата</a>
-    </li>
-    <li class="main-menu__item">
-      <a class="main-menu__link" href="#">О компании</a>
-    </li>
-  </ul>
+<header class="header container">
 
-  <ul class="user-menu">
-    <li class="user-menu__item">
-      <form action="?" name="search-form" class="search-form">
-        <input class="search-form__input" type="search" name="search-query" id="search-query" placeholder="Что ищем?" required>
-        <label for="search-query" class="icon-search search-form__label">Поиск</label>
-        <button class="search-form__btn">Искать</button>
-      </form>
-    </li>
-    <li class="user-menu__item">
-      <a class="user-menu__link user-menu__link--login" href="#">Вход</a>
-    </li>
-    <li class="user-menu__item">
-      <a class="user-menu__link user-menu__link--cart" href="#">Пусто</a>
-    </li>
-  </ul>
-</nav>
+  <div class="header__top">
+    <a class="header__logo" href="/">
+      <img src="img/gllacy-logo.svg" width="153" height="63" alt="Gllacy logo">
+    </a>
 
-<address class="header__address">
-  <span class="header__hours">С&nbsp;10&nbsp;до&nbsp;20, ежедневно</span>
-  <span class="header__phone">8 812 450-25-25</span>
-</address>
+    <nav class="header__nav">
+      <ul class="main-menu">
+        <li class="main-menu__item">
+          <a class="main-menu__link">Каталог</a>
+
+          <ul class="main-menu__inner">
+            <li class="main-menu__inner-item main-menu__inner-item--novelties">
+              <a class="main-menu__inner-link main-menu__inner-link--novelties" href="#">Новинки</a>
+            </li>
+            <li class="main-menu__inner-item">
+              <a class="main-menu__inner-link" href="catalog.html">Сливочное</a>
+            </li>
+            <li class="main-menu__inner-item">
+              <a class="main-menu__inner-link" href="#">Щербеты</a>
+            </li>
+            <li class="main-menu__inner-item">
+              <a class="main-menu__inner-link" href="#">Фруктовый лед</a>
+            </li>
+            <li class="main-menu__inner-item">
+              <a class="main-menu__inner-link" href="#">Мелорин</a>
+            </li>
+          </ul>
+
+        </li>
+        <li class="main-menu__item">
+          <a class="main-menu__link" href="#">Доставка и&nbsp;оплата</a>
+        </li>
+        <li class="main-menu__item">
+          <a class="main-menu__link" href="#">О компании</a>
+        </li>
+      </ul>
+
+      <ul class="user-menu">
+        <li class="user-menu__item">
+          <a href="#" class="icon-search user-menu__item-search">Поиск</a>
+          <form action="?" method="get" name="search-form" class="search-form">
+            <input class="search-form__input" type="search" name="search-query" id="search-query" placeholder="Что ищем?"
+                   required>
+          </form>
+        </li>
+        <li class="user-menu__item">
+          <a class="user-menu__link user-menu__link--login" href="#">Вход</a>
+
+          <form action="?" method="post" name="login-form" class="login-form">
+            <input type="email" class="login-form__input" placeholder="Электронная почта" required>
+            <input type="password" class="login-form__input" placeholder="Пароль" required>
+            <div class="login-form__controls">
+              <input type="submit" value="Войти" class="login-form__submit">
+              <div class="login-form__links">
+                <a class="login-form__link" href="#">Забыли пароль?</a>
+                <a class="login-form__link" href="#">Новая регистрация</a>
+              </div>
+            </div>
+          </form>
+
+        </li>
+        <li class="user-menu__item">
+          <a class="user-menu__link user-menu__link--cart empty" href="#">Пусто</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <address class="header__address">
+    <span class="header__hours">С&nbsp;10&nbsp;до&nbsp;20, ежедневно</span>
+    <span class="header__phone">8 812 450-25-25</span>
+  </address>
+</header>

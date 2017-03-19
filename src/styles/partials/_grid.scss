@@ -1,7 +1,21 @@
 .container {
-  max-width: $lg;
+  max-width: $xl;
   padding-right: 2.25%;
   padding-left: 2.25%;
   margin: 0 auto;
   outline: 1px solid red;
+
+  @include breakpoint(min-width $xl) {
+    padding-right: 27px;
+    padding-left: 27px;
+  }
+}
+
+.col-half {
+  @include breakpoint(min-width $md) {
+    width: 48.87%;
+
+    &__left {  float: left;  }
+    &__right {  float: right;  }
+  }
 }

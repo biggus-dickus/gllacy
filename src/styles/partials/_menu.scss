@@ -1,3 +1,6 @@
+// Local vars
+$popup-shadow: 0 1.25rem 1.25rem get-color(accent, dark, .4);
+
 .main-menu,
 .user-menu {
   @extend .ib;
@@ -12,54 +15,115 @@
 
 .main-menu {
   &__item {
-    font-size: $font-size-base;
-  }
-
-  &__link {
-    border-bottom: 1px solid get-color(primary, light, 0.4);
-  }
-}
-
-.user-menu {
-  &__link {
     position: relative;
-    background-color: get-color(primary, light, .2);
-    @extend .ib__item;
-    @extend %ellipsis;
-    @include button-size(.71em 1.142em, .64em 3.21em, 14px, 1, 2em);
-    @include transition($property: #{color, background});
+    min-height: 35px; // to enable hovering over the inner menu
+    font-size: $font-size-base;
+    margin-right: 1.75rem;
+
+    &:last-child {  margin-right: 0;  }
 
     &::before {
       content: "";
-      left: 16px;
-      @include abs-center(false, 50%);
+      position: absolute;
+      z-index: -1;
+      top: -.45em;  right: -.875em;  bottom: .4em;  left: -.875em;
+      border-radius: 2em;
+      @include transition($property: #{color, background});
     }
 
     &:hover {
-      background-color: get-color(primary, light);
-      color: get-color(primary, dark);
+      color: $text-color-secondary;
 
-      &.user-menu__link--login::before {  @include sprite($login-active);  }
+      &::before {  background-color: get-color(secondary, light);  }
 
-      &.user-menu__link--cart::before {  @include sprite($cart);  }
+      .main-menu__inner {  display: block;  }
     }
 
-    &:active {  transform: translateY(1px);  }
+    &:active {
+      &::before {  box-shadow: 0 2px 1px #696969 inset;  }
+    }
+  }
 
-    &.user-menu__link--login::before {  @include sprite($login);  }
+  &__link {
+    position: relative;
+    display: block;
+    font-weight: 700;
+    border-bottom: 1px solid get-color(primary, light, 0.4);
+    cursor: pointer;
+  }
 
-    &.user-menu__link--cart::before {  @include sprite($cart-empty);  }
+
+  /*======================================
+   Dropdown menu
+  =======================================*/
+  &__inner {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    width: 145px;
+    padding-top: .86em;
+    padding-bottom: .85em;
+    padding-left: 0;
+    border-radius: 5px;
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.142;
+    background-color: get-color(secondary, light);
+    box-shadow: $popup-shadow;
+  }
+
+  &__inner-item.main-menu__inner-item--novelties {
+    padding-right: 8px;
+    padding-left: 5px;
+    margin-bottom: 8px;
+  }
+
+  &__inner-link {
+    display: block;
+    text-decoration: none;
+    color: $text-color-secondary;
+  }
+
+  &__inner-link.main-menu__inner-link--novelties {
+    padding: 0 8px 12px 15px;
+    border-bottom: 1px solid fade-out($text-color-secondary, .8);
+    font-weight: 700;
+  }
+
+  &__inner-link {
+    padding: 5px 8px 8px 20px;
+    @extend %hyphens;
+
+    &:hover:not(.main-menu__inner-link--novelties):not(.current) {
+      background-color: get-color(menu-hovers, light);
+    }
+
+    &:active:not(.main-menu__inner-link--novelties):not(.current) {
+      background-color: get-color(menu-hovers, active);
+    }
+
+    &.current {
+      color: get-color(primary, light);
+      background-color: get-color(menu-hovers, base);
+    }
   }
 }
 
-.search-form {
 
-  &__input,
-  &__btn {
-    display: none;
+/*======================================
+ User menu
+=======================================*/
+.user-menu {
+  margin-right: 12px;
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {  margin-right: 10px;  }
   }
 
-  &__label {
+  &__item-search {
     @extend .ib__item;
     @include transition(background);
     position: relative;
@@ -85,5 +149,108 @@
     }
 
     &:active {  transform: translateY(1px);  }
+  }
+
+  &__link {
+    position: relative;
+    background-color: get-color(primary, light, .2);
+    font-weight: 600;
+    @extend .ib__item;
+    @extend %ellipsis;
+    @include button-size(.71em 1.142em, .64em 3.21em, 14px, 1, 2em);
+    @include transition($property: #{color, background});
+
+    &::before {
+      content: "";
+      left: 16px;
+      @include abs-center(false, 50%);
+    }
+
+    &:hover {
+      background-color: get-color(primary, light);
+      color: $text-color-secondary;
+
+      &.user-menu__link--login::before {  @include sprite($login-active);  }
+
+      &.user-menu__link--cart::before {  @include sprite($cart);  }
+    }
+
+    &:active {  transform: translateY(1px);  }
+
+    &.empty {  pointer-events: none;  }
+
+    &.user-menu__link--login::before {  @include sprite($login);  }
+
+    &.user-menu__link--cart::before {  @include sprite($cart-empty);  }
+  }
+}
+
+// Shared styles for all dropdown forms
+%dropdown-form {
+  //display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  border-radius: 5px;
+  background-color: get-color(secondary, light);
+  box-shadow: $popup-shadow;
+}
+
+
+
+
+/*======================================
+ Login form
+=======================================*/
+.login-form {
+  @extend %dropdown-form;
+  width: 275px;
+  padding: 20px 17px 22px 19px;
+
+  &__input {
+    @extend .input-field;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__controls {  font-size: 0;  }
+
+  &__submit {
+    @extend .btn;
+    @extend .btn--primary;
+    min-width: 100px;
+    margin-right: 19px;
+  }
+
+  &__links {  @extend .ib__item;  }
+
+  &__link {
+    display: block;
+    font-size: 13px;
+    color: $text-color-secondary;
+
+    &:hover {  text-decoration: none;  }
+
+    &:active {  transform: translateY(1px);  }
+  }
+}
+
+
+/*======================================
+ Search form
+=======================================*/
+.search-form {
+  @extend %dropdown-form;
+  width: 340px;
+  padding: 20px 15px;
+
+  @include breakpoint(max-width $sm) {
+    width: 210px;
+    padding: 0;
+  }
+
+  &__input {
+    @extend .input-field;
+    width: 100%;
   }
 }

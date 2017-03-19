@@ -14,7 +14,6 @@
 //
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
-
 @mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
@@ -69,6 +68,7 @@
 }
 
 // Button sizes
+// -------------------------------------------------------------------------
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
@@ -76,12 +76,16 @@
   border-radius: $border-radius;
 }
 
+
 // Default or customized transition effect
+// -------------------------------------------------------------------------
 @mixin transition($property: all, $time: .25s, $timing-function: ease-in-out) {
   transition: $property $time $timing-function;
 }
 
-// Absolute centering
+
+// Absolute centering technique (transforms)
+// -------------------------------------------------------------------------
 @mixin abs-center($by-x-axis: 50%, $by-y-axis: 50%) {
   position: absolute;
   @if $by-x-axis and $by-y-axis {
@@ -96,5 +100,170 @@
   @else if $by-x-axis == false and $by-y-axis {
     top: $by-y-axis;
     transform: translateY(-$by-y-axis);
+  }
+}
+
+
+// Absolute centering technique (margin-auto)
+// -------------------------------------------------------------------------
+@mixin centering-absolute($plane: 'else') {
+  position: absolute;
+  @if $plane == 'horizontal' {
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  } @else if $plane == 'vertical' {
+    top: 0; bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  } @else {
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    margin: auto;
+  }
+}
+
+
+// Different placeholder inserts
+// -------------------------------------------------------------------------
+@mixin placeholder-color($color:#909) {
+  ::-webkit-input-placeholder { color: $color; @content}
+  :-moz-placeholder { color: $color; opacity: 1; @content}
+  ::-moz-placeholder { color: $color; opacity: 1; @content}
+  :-ms-input-placeholder {color: $color; @content}
+}
+@mixin placeholder-input($opacity, $color) {
+  &::-moz-placeholder {
+    opacity: $opacity;
+    color: $color;
+  }
+  &::-ms-input-placeholder {
+    opacity: $opacity;
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    opacity: $opacity;
+    color: $color;
+  }
+  &::placeholder {
+    opacity: $opacity;
+    color: $color;
+  }
+}
+@mixin placeholder-textarea($font-size, $transform) {
+  &::-moz-placeholder {
+    font-size: $font-size;
+    text-transform: $transform;
+  }
+  &::-ms-input-placeholder {
+    font-size: $font-size;
+    text-transform: $transform;
+  }
+  &::-webkit-input-placeholder {
+    font-size: $font-size;
+    text-transform: $transform;
+  }
+  &::placeholder {
+    font-size: $font-size;
+    text-transform: $transform;
+  }
+}
+
+
+// Brackets like "<" and ">"
+// -------------------------------------------------------------------------
+@mixin angle-brackets($location:false, $direction:false, $size:false, $weight: false, $color:false) {
+  &:#{$location} {
+    content: "";
+    background-color: transparent;
+    width: $size;
+    height: $size;
+    border-top: solid $weight $color;
+    border-right: solid $weight $color;
+    position: absolute;
+
+    @if $direction == top {
+      transform: rotate(-45deg);
+    }
+    @else if $direction == right {
+      transform: rotate(45deg);
+    }
+    @else if $direction == bottom {
+      transform: rotate(135deg);
+    }
+    @else {
+      transform: rotate(225deg);
+    }
+    @content;
+  }
+}
+
+
+// Equilateral triangle on pure CSS
+// -------------------------------------------------------------------------
+@mixin triangle($direction, $width, $height, $color) {
+  border-style: solid;
+  @if $direction == 'bottom' {
+    border-width: $height ($width / 2) 0 ($width / 2);
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == 'left' {
+    border-width: ($width / 2) $height ($width / 2) 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == 'top' {
+    border-width: 0 ($width / 2) $height ($width / 2);
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == 'right' {
+    border-width: ($width / 2) 0 ($width / 2) $height;
+    border-color: transparent transparent transparent $color;
+  } @else {
+    @error "Some parameters were set incorrectly!";
+  }
+  @content;
+}
+
+
+// FF only rules
+// -------------------------------------------------------------------------
+@mixin firefox-rules() {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+
+// Target some of the best browsers in the world
+// -------------------------------------------------------------------------
+@mixin ie-rules() {
+  @media all and (-ms-high-contrast:none) {
+    @content;
+  }
+}
+
+
+// Add two triangles (fishtail) to parent element from the left side
+// -------------------------------------------------------------------------
+@mixin fishtail($height: 40px, $width: 30px, $color:transparent, $position:left) {
+  @if $position != right and $position != left {
+    @error "$position not avalible with '#{$position}' value. Please use 'right', or default 'left' value";
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    #{$position}: - $width;
+  }
+
+  &:before {
+    border-top: $height / 2 solid $color;
+    border-#{$position}: $width solid transparent;
+    top: 0;
+  }
+  &:after {
+    border-bottom: $height / 2 solid $color;
+    border-#{$position}: $width solid transparent;
+    bottom: 0;
   }
 }

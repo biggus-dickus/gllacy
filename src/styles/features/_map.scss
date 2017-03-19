@@ -1,0 +1,76 @@
+.google-map {
+  position: relative;
+  height: 430px;
+  z-index: 1;
+}
+
+.map {
+  position: relative;
+  height: 430px;
+  overflow-x: hidden;
+
+  &__img { // fallback img, which displays if JS is disabled (progressive enhancement, BLEAT')
+    @include centering-absolute();
+    max-width: none;
+  }
+
+  &__address {
+    position: absolute;
+    top: 60px;
+    right: calc(50% - (#{$xl} / 2 - 27px) ); // half of the wrapping container width MINUS its right padding
+    z-index: 1;
+    width: 300px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.42;
+    color: $text-color-secondary;
+    background-color: get-color(primary, light);
+
+    @include breakpoint(max-width $xl) {  right: 2.25%;  }
+
+    p:first-child {
+      margin-top: 0;
+      margin-bottom: 1.5em;
+
+      span {  display: block;  }
+    }
+
+    p:nth-child(2) {
+      margin-bottom: 2em;
+
+      strong {  margin-top: .5em;  }
+    }
+
+    strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.33;
+    }
+
+    .btn {  display: block;  }
+  }
+
+  &__address-close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 0;
+    text-decoration: none;
+    color: get-color(accent, light);
+    opacity: .65;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "×";
+      font-size: 22px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

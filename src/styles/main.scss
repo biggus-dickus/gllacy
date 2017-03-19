@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 // Vendor components
-@import "vendor/normalize";
+@import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
+@import "../../bower_components/normalize-css/normalize";
 
 // Generated code (sprites, icons, etc.)
 @import "generated/sprite";
@@ -15,11 +16,18 @@
 @import "partials/buttons";
 @import "partials/catalog";
 @import "partials/fonts";
+@import "partials/header";
 @import "partials/footer";
 @import "partials/grid";
+@import "partials/inputs";
+@import "partials/links";
 @import "partials/menu";
 @import "partials/typography";
 @import "partials/scaffolding";
 @import "partials/utils";
 
 // Feature components
+@import "features/about";
+@import "features/blog";
+@import "features/map";
+@import "features/specials";
