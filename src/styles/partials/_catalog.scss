@@ -1,6 +1,6 @@
 .catalog {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   @include breakpoint(max-width $sm) {  justify-content: center;  }
 }
@@ -8,11 +8,17 @@
 .featured-products {  @extend .catalog;  }
 
 .product-card {
+  position: relative;
   min-width: 200px;
   width: 23.3%;
-  position: relative;
   margin-bottom: 35px;
   text-align: center;
+
+  @include breakpoint(min-width $xl) {  margin-right: 2.26%;  }
+  @include breakpoint(max-width $xl) {  margin-right: 1.75%;  }
+
+  &:nth-child(4n),
+  &:last-child {  margin-right: 0;  }
 
   &::before,
   &::after {

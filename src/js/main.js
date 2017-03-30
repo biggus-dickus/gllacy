@@ -1,6 +1,12 @@
 (function() {
   'use strict';
 
+  var gllacyApp = angular.module('gllacyApp', []);
+
+  gllacyApp.component('products', {
+    bindings: { products: '<' },
+    templateUrl: '../templates/products.tpl.html'
+  });
 
 })();
 

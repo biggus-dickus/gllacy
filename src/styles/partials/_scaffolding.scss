@@ -1,3 +1,6 @@
+// Beware that those wankers at optimize.css removed all 'opinionated' rules from v.6.0.0,
+// which were quite useful, though. Now you have to reset margins, font-family, etc. on your own.
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -9,6 +12,7 @@ html {
 
 body {
   min-width: $xs - $gutter * 2;
+  margin: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: $font-size-base;
   line-height: 1.375;
@@ -18,6 +22,8 @@ body {
 
 button,
 input,
+select,
+optgroup,
 textarea { font-family: inherit; }
 
 img,
@@ -36,11 +42,9 @@ input[placeholder] { text-overflow: ellipsis; }
 input:-moz-placeholder { text-overflow: ellipsis; }
 
 /* Smooth opacity transition for input placeholder on focus */
-input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.3s ease;}
-input::-moz-placeholder                {opacity: 1; transition: opacity 0.3s ease;}
-input:-moz-placeholder                 {opacity: 1; transition: opacity 0.3s ease;}
-input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.3s ease;}
-input:focus::-webkit-input-placeholder {opacity: .5; transition: opacity 0.3s ease;}
-input:focus::-moz-placeholder          {opacity: .5; transition: opacity 0.3s ease;}
-input:focus:-moz-placeholder           {opacity: .5; transition: opacity 0.3s ease;}
-input:focus:-ms-input-placeholder      {opacity: .5; transition: opacity 0.3s ease;}
+input::-webkit-input-placeholder       {opacity: 1; transition: opacity .3s ease;}
+input::-moz-placeholder                {opacity: 1; transition: opacity .3s ease;}
+input:-ms-input-placeholder            {opacity: 1; transition: opacity .3s ease;}
+input:focus::-webkit-input-placeholder {opacity: .5; transition: opacity .3s ease;}
+input:focus::-moz-placeholder          {opacity: .5; transition: opacity .3s ease;}
+input:focus:-ms-input-placeholder      {opacity: .5; transition: opacity .3s ease;}

@@ -3,7 +3,7 @@
 /**
  * Components and links
  */
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     sass = require('gulp-sass'),
     watch = require('gulp-watch'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -36,7 +36,7 @@ var path = {
   src: {
     html: 'src/*.html',
     tpl: 'src/templates/*.tpl.html',
-    js: 'src/js/main.js',
+    js: 'src/js/*.js',
     styles: 'src/styles/main.scss',
     img: 'src/img/**/*.*',
     sprite: 'src/img/sprite-src/*.png',
@@ -90,6 +90,11 @@ gulp.task('tpl:build', function() {
   .pipe(reload({stream: true}));
 });
 
+gulp.task('data:copy', function() {
+  gulp.src('src/data/*json')
+      .pipe(gulp.dest('build/data/'))
+      .pipe(reload({stream: true}));
+});
 
 gulp.task('css:build', function() {
   gulp.src(path.src.styles)
@@ -106,10 +111,13 @@ gulp.task('css:build', function() {
 
 
 gulp.task('js:build', function() {
-  gulp.src(path.src.js)
+  gulp.src(path.src.js, { base: process.cwd() })
     .pipe(rigger())
     .pipe(uglify())
-    .pipe(rename('main.min.js'))
+    .pipe(rename({
+      dirname: "",
+      suffix: ".min"
+    }))
     .pipe(gulp.dest(path.build.js))
     .pipe(reload({stream: true}));
 });
@@ -158,6 +166,7 @@ gulp.task('fonts:build', function() {
 gulp.task('build', [
   'html:build',
   'tpl:build',
+  'data:copy',
   'css:build',
   'js:build',
   'fonts:build',

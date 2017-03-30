@@ -9,6 +9,7 @@
     @extend .title;
     font-weight: 600;
     margin-top: 0;
+    margin-bottom: 10px;
   }
 }
 
@@ -16,7 +17,36 @@
   @extend .ib;
 
   &__item {
-    @extend .ib__item;
-    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 48.94%;
+    padding-top: 10px;
+    padding-left: 55px;
+    margin-right: 2.11%;
+    font-size: 1rem;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(n + 3) {
+      margin-top: 10px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &.features__item--manufacture::before {  @include sprite($eskimo);  }
+
+    &.features__item--farmers::before {  @include sprite($cow);  }
+
+    &.features__item--eco::before {  @include sprite($leaf);  }
+
+    &.features__item--temperature::before {  @include sprite($thermometer);  }
   }
 }

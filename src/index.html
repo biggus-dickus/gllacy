@@ -4,7 +4,7 @@
   //= templates/head.html
   <title>Главная — Gllacy Shop</title>
 </head>
-<body>
+<body data-ng-app="gllacyApp">
 
   //= templates/header-menu.html
 
@@ -22,7 +22,7 @@
         </li>
         <li class="carousel__item">
           <h2 class="slider__text">Пломбир с&nbsp;помадкой и&nbsp;клубничный щербет</h2>
-          <a href="#" class="btn btn--primary">Давайте оба!</a>
+          <a href="#" class="btn btn--primary">Давайте оба! {{1+1}}</a>
         </li>
       </ul>
 
@@ -30,6 +30,8 @@
       <i class="slider__dot"></i>
       <i class="slider__dot"></i>
     </section>
+
+    <products></products>
 
 
 

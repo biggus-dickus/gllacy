@@ -26,24 +26,24 @@
     display: inline-block;
     vertical-align: middle;
     max-width: 100%;
-  }
 
-  &.ib__item--vab { vertical-align: bottom; }
+    &.ib__item--vab { vertical-align: bottom; }
 
-  &.ib__item--vabl { vertical-align: baseline; }
+    &.ib__item--vabl { vertical-align: baseline; }
 
-  &.ib__item--vat { vertical-align: top; }
+    &.ib__item--vat { vertical-align: top; }
 
-  &.ib--justify {
-  text-align: justify;
-  text-align-last: justify;
+    &.ib--justify {
+      text-align: justify;
+      text-align-last: justify;
 
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 100%;
-      height: 0;
-      overflow: hidden;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+      }
     }
   }
 }

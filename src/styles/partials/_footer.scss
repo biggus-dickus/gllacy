@@ -1,4 +1,39 @@
 .footer {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+
+  &__links {
+    @extend .ib;
+    max-width: 350px;
+  }
+
+  &__links-item {
+    @extend .ib__item;
+    width: 50%;
+
+    a {
+      font-size: 13px;
+      line-height: 1.384;
+
+      //&:hover {
+      //  color: inherit;
+      //  font-weight: 700;
+      //}
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+
+    &-text {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+
   &__logo {
     width: 108px;
     height: 38px;
