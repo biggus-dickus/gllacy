@@ -16,10 +16,11 @@
     "tests"
   ],
   "devDependencies": {
-    "breakpoint-sass": "^2.7.1"
+
   },
   "dependencies": {
-    "normalize-css": "^6.0.0",
-    "angular": "^1.6.3"
+    "angular": "^1.6.4",
+    "breakpoint-sass": "^2.7.1",
+    "normalize-css": "^6.0.0"
   }
 }

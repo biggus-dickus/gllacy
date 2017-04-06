@@ -1,13 +1,44 @@
+var glApp = angular.module('glApp', []);
+
+
 (function() {
   'use strict';
 
-  var gllacyApp = angular.module('gllacyApp', []);
+  glApp.service('FetchData', ['$http', function($http) {
+    this.getData = function(url) {
+      return $http.get(url, { cache: true })
+        .then(
+            function(response) {
+              return response.data;
+            },
+            function(response) {
+              console.log('Houston, we had problems while addressing REST: ' + url + ', ' + response.status + ', ' + response.statusText);
+            });
+    };
+  }]);
+})();
 
-  gllacyApp.component('products', {
+
+(function() {
+  'use strict';
+
+  glApp.component('products', {
     bindings: { products: '<' },
-    templateUrl: '../templates/products.tpl.html'
+    templateUrl: '../templates/products.tpl.html',
+    controller: Controller
   });
 
+  Controller.$inject = ['FetchData'];
+
+  function Controller(FetchData) {
+    var self = this;
+    this.products = {};
+
+    FetchData.getData('/data/products.json')
+        .then(function(data) {
+          self.products = data;
+        });
+  }
 })();
 
 

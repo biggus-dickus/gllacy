@@ -1,3 +1,15 @@
-<div>
-  blablabla
-</div>
+<section class="catalog">
+  <article data-ng-repeat="product in $ctrl.products" class="product-card">
+    <figure class="product-card__figure">
+      <img data-ng-src="{{ product.img }}" width="267" height="267" alt="{{ product.name }}" class="product-card__img">
+      <figcaption class="product-card__figcaption">
+        <a href="#">{{ product.name }}</a>
+      </figcaption>
+    </figure>
+    <mark data-ng-if="product.isFeatured" class="product-card__badge">Хит</mark>
+    <strong class="product-card__price">
+      {{ product.price }} &#8381;/<span class="product-card__price-unit">кг</span>
+    </strong>
+    <a href="#" class="product-card__btn">В&nbsp;корзину</a>
+  </article>
+</section>

@@ -3,10 +3,72 @@
     "name": "Сливочное с апельсиновым джемом и цитрусовой стружкой",
     "img": "img/catalogue/01.png",
     "price": 310,
+    "isFeatured": true
   },
   {
     "name": "Сливочно-кофейное с кусочками шоколада",
     "img": "img/catalogue/02.png",
     "price": 380,
+    "isFeatured": true
+  },
+  {
+    "name": "Сливочно-кофейное с присыпкой из белого шоколада",
+    "img": "img/catalogue/03.png",
+    "price": 355,
+    "isFeatured": true
+  },
+  {
+    "name": "Сливочное крем-брюле с карамельной подливокй",
+    "img": "img/catalogue/04.png",
+    "price": 415,
+    "isFeatured": true
+  },
+  {
+    "name": "Сливочное с брусничным джемом",
+    "img": "img/catalogue/05.png",
+    "price": 325,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочно-черничное с цельными ягодами черники",
+    "img": "img/catalogue/06.png",
+    "price": 410,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочно-лимонное с карамельной присыпкой",
+    "img": "img/catalogue/07.png",
+    "price": 375,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочное с шоколадной стружкой",
+    "img": "img/catalogue/08.png",
+    "price": 320,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочно-ванильное с кусочками шоколада",
+    "img": "img/catalogue/09.png",
+    "price": 440,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочное с ментоловым сиропом",
+    "img": "img/catalogue/10.png",
+    "price": 355,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочное с кусочками черного шоколада",
+    "img": "img/catalogue/11.png",
+    "price": 355,
+    "isFeatured": false
+  },
+  {
+    "name": "Сливочное с мятным сиропом",
+    "img": "img/catalogue/12.png",
+    "price": 420,
+    "isFeatured": false
   }
 ]
