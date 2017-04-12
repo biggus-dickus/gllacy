@@ -1,0 +1,18 @@
+{
+  "plugins": [],
+  "rules": {
+    "color-no-invalid-hex": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-no-important": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "max-nesting-depth": [3, {"ignore": ["blockless-at-rules"]}],
+    "no-duplicate-selectors": true,
+    "no-extra-semicolons": true,
+    "no-unknown-animations": true,
+    "number-leading-zero": null,
+    "selector-max-specificity": "0,3,2",
+    "selector-no-id": true,
+    "selector-no-type": [true, {"ignore": ["descendant"]}]
+  }
+}

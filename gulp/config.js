@@ -17,7 +17,7 @@ global.path = {
     html: 'src/*.html',
     tpl: 'src/templates/*.tpl.html',
     js: 'src/js/*.js',
-    styles: 'src/styles/main.scss',
+    styles: 'src/styles/*.scss',
     img: 'src/img/**/*.*',
     sprite: 'src/img/sprite-src/*.png',
     spritesheet: 'src/styles/generated/',

@@ -1,0 +1,3 @@
+src/styles/vendor/**/*.scss
+src/styles/base/_mixins.scss
+src/styles/partials/_scaffolding.scss

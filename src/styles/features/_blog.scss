@@ -18,11 +18,9 @@
         margin-bottom: 30px;
       }
 
-      a {
-        color: inherit;
+      a {  color: inherit;  }
 
-        &:hover {  text-decoration: none;  }
-      }
+      a:hover {  text-decoration: none;  }
     }
 
     &.blog__item--subscribe {

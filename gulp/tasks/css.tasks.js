@@ -1,14 +1,27 @@
 'use strict';
 
 const gulp = require('gulp'),
+
+    // Compiling with bells & whistles
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cmq = require('gulp-combine-mq'),
     cssnano = require('gulp-cssnano'),
+    rimraf = require('rimraf'),
+
+    // Sprite generation
     merge = require('merge-stream'),
     spritesmith = require('gulp.spritesmith'),
     pngquant = require('imagemin-pngquant'),
     imagemin = require('gulp-imagemin'),
+
+    // Stylelint
+    postcss = require('gulp-postcss'),
+    reporter = require('postcss-reporter'),
+    stylelint = require('stylelint'),
+    scss = require("postcss-scss"),
+
+    // Browsersync
     browserSync = require("browser-sync");
 
 
@@ -76,4 +89,16 @@ gulp.task('sprite:build', function() {
 gulp.task('fonts:build', function() {
   gulp.src(path.src.fonts)
       .pipe(gulp.dest(path.build.fonts))
+});
+
+
+gulp.task('scss:lint', function() {
+  return gulp.src(path.watch.styles)
+      .pipe(postcss(
+          [
+            stylelint({ /* options are set in .stylelintrc */ }),
+            reporter({ clearMessages: true })
+          ],
+          { syntax: scss }
+      ));
 });

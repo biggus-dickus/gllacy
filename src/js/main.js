@@ -1,34 +1,40 @@
-var glApp = angular.module('glApp', []);
-
-
 (function() {
   'use strict';
 
-  glApp.service('FetchData', ['$http', function($http) {
-    this.getData = function(url) {
-      return $http.get(url, { cache: true })
-        .then(
-            function(response) {
-              return response.data;
-            },
-            function(response) {
-              console.log('Houston, we had problems while addressing REST: ' + url + ', ' + response.status + ', ' + response.statusText);
-            });
-    };
-  }]);
+  angular.module('glApp', []);
 })();
 
 
 (function() {
   'use strict';
 
-  glApp.component('products', {
+  angular.module('glApp').service('FetchData', fetchData);
+
+  function fetchData($http) {
+    this.getData = function(url) {
+      return $http.get(url, { cache: true })
+          .then(
+              function(response) {
+                return response.data;
+              },
+              function(response) {
+                console.log('Houston, we had problems while addressing REST: ' + url + ', ' + response.status + ', ' + response.statusText);
+              });
+    };
+  }
+
+  fetchData.$inject = ['$http'];
+})();
+
+
+(function() {
+  'use strict';
+
+  angular.module('glApp').component('products', {
     bindings: { products: '<' },
     templateUrl: '../templates/products.tpl.html',
     controller: Controller
   });
-
-  Controller.$inject = ['FetchData'];
 
   function Controller(FetchData) {
     var self = this;
@@ -39,6 +45,8 @@ var glApp = angular.module('glApp', []);
           self.products = data;
         });
   }
+
+  Controller.$inject = ['FetchData'];
 })();
 
 

@@ -15,9 +15,6 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-
-  },
   "dependencies": {
     "angular": "^1.6.4",
     "breakpoint-sass": "^2.7.1",

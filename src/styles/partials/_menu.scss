@@ -79,12 +79,6 @@ $popup-shadow: 0 1.25rem 1.25rem get-color(accent, dark, .4);
     margin-bottom: 8px;
   }
 
-  &__inner-link {
-    display: block;
-    text-decoration: none;
-    color: $text-color-secondary;
-  }
-
   &__inner-link.main-menu__inner-link--novelties {
     padding: 0 8px 12px 15px;
     border-bottom: 1px solid fade-out($text-color-secondary, .8);
@@ -92,7 +86,10 @@ $popup-shadow: 0 1.25rem 1.25rem get-color(accent, dark, .4);
   }
 
   &__inner-link {
+    display: block;
     padding: 5px 8px 8px 20px;
+    text-decoration: none;
+    color: $text-color-secondary;
     @extend %hyphens;
 
     &:hover:not(.main-menu__inner-link--novelties):not(.current) {
