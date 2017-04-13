@@ -73,7 +73,11 @@
       </div>
     </form>
 
-    <products><div class="loader"></div></products>
+    <div data-ng-controller="ProductsController as ctrl">
+      <products-list data-products="ctrl.products">
+        <div class="loader"></div>
+      </products-list>
+    </div>
 
     <ul class="pagination">
       <li class="pagination__item"><a class="pagination__link inactive">&lt;</a></li>

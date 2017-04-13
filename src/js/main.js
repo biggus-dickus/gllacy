@@ -10,43 +10,60 @@
 
   angular.module('glApp').service('FetchData', fetchData);
 
+  fetchData.$inject = ['$http'];
+
   function fetchData($http) {
     this.getData = function(url) {
       return $http.get(url, { cache: true })
-          .then(
-              function(response) {
-                return response.data;
-              },
-              function(response) {
-                console.log('Houston, we had problems while addressing REST: ' + url + ', ' + response.status + ', ' + response.statusText);
-              });
+
+        .then(function(response) {
+            return response.data;
+          },
+
+          function(response) {
+            console.log('Houston, we had problems while addressing REST: ' + url + ', ' + response.status + ', ' + response.statusText);
+          });
     };
   }
 
-  fetchData.$inject = ['$http'];
 })();
 
 
 (function() {
   'use strict';
 
-  angular.module('glApp').component('products', {
-    bindings: { products: '<' },
-    templateUrl: '../templates/products.tpl.html',
-    controller: Controller
-  });
+  angular.module('glApp').controller('ProductsController', ProductsController);
 
-  function Controller(FetchData) {
+  ProductsController.$inject = ['FetchData'];
+
+  function ProductsController(FetchData) {
     var self = this;
     this.products = {};
+    this.featuredProducts = {};
 
     FetchData.getData('/data/products.json')
-        .then(function(data) {
-          self.products = data;
+      .then(function(data) {
+        self.products = data;
+
+        self.featuredProducts = data.filter(function(product) {
+          if(product.isFeatured === true) {
+            return product;
+          }
         });
+      });
   }
 
-  Controller.$inject = ['FetchData'];
+})();
+
+
+(function() {
+  'use strict';
+
+  angular.module('glApp').component('productsList', {
+    bindings: { products: '<' },
+    templateUrl: '../templates/products.tpl.html'
+  });
+
 })();
 
 
