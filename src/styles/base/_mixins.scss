@@ -267,3 +267,17 @@
     bottom: 0;
   }
 }
+
+// Compose a vertical text rhythm
+// -------------------------------------------------------------------------
+$v-rhythm-line-height: 24px !default;
+
+@mixin set-font($font-size, $line-height: $v-rhythm-line-height) {
+  font-size: $font-size;
+  line-height: $v-rhythm-line-height;
+}
+
+@mixin set-margin($margin-top: $v-rhythm-line-height, $margin-bottom: $v-rhythm-line-height) {
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+}
