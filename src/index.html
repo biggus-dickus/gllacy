@@ -22,7 +22,7 @@
         </li>
         <li class="carousel__item">
           <h2 class="slider__text">Пломбир с&nbsp;помадкой и&nbsp;клубничный щербет</h2>
-          <a href="#" class="btn btn--primary">Давайте оба! {{1+1}}</a>
+          <a href="#" class="btn btn--primary">Давайте оба!</a>
         </li>
       </ul>
 
@@ -51,7 +51,8 @@
 
     <div data-ng-controller="ProductsController as ctrl">
       <products-list data-products="ctrl.featuredProducts">
-        <div class="loader"></div>
+        <!--<div class="loader"></div>-->
+        <p style="text-align: center;">Ты видишь это сообщение, потому что <s>ты мудак</s> у тебя отключен JavaScript. Потому что ты мудак!</p>
       </products-list>
     </div>
 
@@ -112,7 +113,8 @@
   </div>
 
   //= templates/footer.html
-  //= templates/feedback.html
+
+  <feedback-form></feedback-form>
 
   //= templates/scripts-section.html
 </body>

@@ -16,7 +16,8 @@ global.path = {
   src: {
     html: 'src/*.html',
     tpl: 'src/templates/*.tpl.html',
-    js: 'src/js/*.js',
+    js: 'src/js/**/*.js',
+    vendorJS: ['bower_components/angular/angular.min.js'],
     styles: 'src/styles/*.scss',
     img: 'src/img/**/*.*',
     sprite: 'src/img/sprite-src/*.png',

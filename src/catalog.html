@@ -75,7 +75,10 @@
 
     <div data-ng-controller="ProductsController as ctrl">
       <products-list data-products="ctrl.products">
-        <div class="loader"></div>
+        <!--<div class="loader" ng-if="ctrl.loading"></div>-->
+        <p style="text-align: center;">
+          Ты видишь это сообщение, потому что <del>ты мудак</del> у тебя отключен JavaScript. Потому что ты мудак!
+        </p>
       </products-list>
     </div>
 
@@ -91,7 +94,8 @@
   </main>
 
   //= templates/footer.html
-  //= templates/feedback.html
+
+  <feedback-form></feedback-form>
 
   //= templates/scripts-section.html
 </body>
