@@ -74,7 +74,7 @@
     </form>
 
     <div data-ng-controller="ProductsController as ctrl">
-      <products-list data-products="ctrl.products">
+      <products-list data-products="ctrl.products" data-loading="ctrl.loading">
         <!--<div class="loader" ng-if="ctrl.loading"></div>-->
         <p style="text-align: center;">
           Ты видишь это сообщение, потому что <del>ты мудак</del> у тебя отключен JavaScript. Потому что ты мудак!
