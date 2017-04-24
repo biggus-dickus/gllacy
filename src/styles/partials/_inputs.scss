@@ -1,3 +1,4 @@
+// Basic styles, extendable
 %input-field,
 .input-field {
   @include placeholder-color(get-color(accent, light));
@@ -8,4 +9,26 @@
   font-size: 14px;
   line-height: 1;
   color: $text-color-secondary;
+}
+
+.textarea-field,
+%textarea-field {
+  padding: .85em 1.07em .8em;
+  border: 1px solid get-color(secondary, darker);
+  border-radius: .285em;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+// Interactive styles
+.input-field,
+.textarea-field {
+  &:hover {
+    box-shadow: inset 0 0 0 1px get-color(accent, darker, .52);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 1px get-color(accent, blue, .52);
+  }
 }

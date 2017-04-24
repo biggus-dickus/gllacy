@@ -1,0 +1,53 @@
+.feedback-form {
+  color: $text-color-secondary;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: .9em;
+    font-size: $title-base;
+    line-height: 1.17;
+    font-weight: 600;
+  }
+
+  &__form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    @extend .input-field;
+    font-weight: 700;
+    width: 265px;
+  }
+
+  &__textarea {
+    @extend .textarea-field;
+    width: 100%;
+    height: 155px;
+    resize: none;
+  }
+
+  // Overriding extend
+  input.feedback-form__input,
+  textarea.feedback-form__textarea {  font-size: 16px;  }
+
+  &__input,
+  &__textarea {
+    &:focus + .feedback-form__label,
+    &:valid + .feedback-form__label {
+      top: -17px;
+      font-size: 11px;
+    }
+
+    &:focus + .feedback-form__label {  color: get-color(accent, blue, .52);  }
+
+    &:valid + .feedback-form__label {  color: get-color(accent, light);  }
+  }
+
+  &__label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: get-color(accent, light);
+  }
+}

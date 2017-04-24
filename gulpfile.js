@@ -52,13 +52,14 @@ gulp.task('watch', function() {
 
 
 gulp.task('prod', [
+  'img:build',
+  'sprite:build',
   'html:prod',
   'tpl:prod',
   'data:copy',
   'css:prod',
   'js:prod',
-  'fonts:build',
-  'img:build'
+  'fonts:build'
 ]);
 
 gulp.task('develop', [

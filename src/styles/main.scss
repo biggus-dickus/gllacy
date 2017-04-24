@@ -23,6 +23,7 @@
 @import "partials/inputs";
 @import "partials/links";
 @import "partials/menu";
+@import "partials/modals";
 @import "partials/typography";
 @import "partials/scaffolding";
 @import "partials/utils";
@@ -30,5 +31,6 @@
 // Feature components
 @import "features/about";
 @import "features/blog";
+@import "features/feedback-form";
 @import "features/map";
 @import "features/specials";

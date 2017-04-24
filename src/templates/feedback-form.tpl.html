@@ -1,20 +1,30 @@
-<form name="feedback-form" action="?" method="post" class="feedback-form">
-  <i class="feedback-form__close" title="Закрыть"></i>
-  <h3 class="feedback-form__title">Мы обязательно вам ответим!</h3>
-  <div class="feedback-form__form-group">
-    <input name="username" id="username" type="text" class="feedback-form__input">
-    <label for="username">Как вас зовут?</label>
-  </div>
+<article class="modal" id="feedback-modal">
+  <div class="modal__inner">
+    <a class="modal__close" title="Закрыть" href="#"
+       data-ng-controller="modalsController as ctrl"
+       data-ng-click="$event.preventDefault(); ctrl.hideModal('#feedback-modal')">
+      &times;
+    </a>
+    <form name="feedback-form" action="?" method="post" class="feedback-form">
+      <h3 class="feedback-form__title">Мы обязательно вам ответим!</h3>
+      <div class="feedback-form__form-group">
+        <input name="username" id="username" type="text" class="feedback-form__input" required maxlength="60"  autofocus>
+        <label class="feedback-form__label" for="username">Как вас зовут?</label>
+      </div>
 
-  <div class="feedback-form__form-group">
-    <input name="user-mail" id="user-mail" type="email" class="feedback-form__input">
-    <label for="user-mail">Ваша почта для ответа</label>
-  </div>
+      <div class="feedback-form__form-group">
+        <input name="user-mail" id="user-mail" type="email" class="feedback-form__input" maxlength="50" required>
+        <label class="feedback-form__label" for="user-mail">Ваша почта для ответа</label>
+      </div>
 
-  <div class="feedback-form__form-group">
-    <textarea name="user-message" id="user-message"></textarea>
-    <label for="user-message">Напишите что-нибудь...</label>
-  </div>
+      <div class="feedback-form__form-group">
+        <textarea name="user-message" id="user-message" class="feedback-form__textarea" maxlength="500" required></textarea>
+        <label class="feedback-form__label" for="user-message">Напишите что-нибудь...</label>
+      </div>
 
-  <input type="submit" class="btn btn--primary" value="Отправить">
-</form>
+      <div class="text-right">
+        <input type="submit" class="btn btn--primary" value="Отправить">
+      </div>
+    </form>
+  </div>
+</article>

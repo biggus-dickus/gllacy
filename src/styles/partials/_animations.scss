@@ -1,3 +1,4 @@
+// Loader animation
 @keyframes load1 {
   0%,
   80%,
@@ -9,6 +10,14 @@
     box-shadow: 0 -2em;
     height: 5em;
   }
+}
+
+// Best set for modal window appearance
+@keyframes bounce {
+  0% {  transform: translateY(-2000px);  }
+  70% {  transform: translateY(30px);  }
+  90% {  transform: translateY(-10px);  }
+  100% {  transform: translateY(0);  }
 }
 
 .loader,
