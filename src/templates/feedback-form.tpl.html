@@ -2,29 +2,37 @@
   <div class="modal__inner">
     <a class="modal__close" title="Закрыть" href="#"
        data-ng-controller="modalsController as ctrl"
-       data-ng-click="$event.preventDefault(); ctrl.hideModal('#feedback-modal')">
+       data-ng-click="$event.preventDefault(); ctrl.hideModal('feedback-modal')">
       &times;
     </a>
-    <form name="feedback-form" action="?" method="post" class="feedback-form">
+
+    <form name="feedbackForm" action="//httpbin.org/post" method="post"
+          data-ng-submit="$event.preventDefault(); $ctrl.postData(feedbackForm)"
+          class="feedback-form" novalidate>
       <h3 class="feedback-form__title">Мы обязательно вам ответим!</h3>
       <div class="feedback-form__form-group">
-        <input name="username" id="username" type="text" class="feedback-form__input" required maxlength="60"  autofocus>
+        <input name="username" id="username" type="text" class="feedback-form__input" maxlength="60"
+               data-ng-model="username" required autofocus>
         <label class="feedback-form__label" for="username">Как вас зовут?</label>
       </div>
 
       <div class="feedback-form__form-group">
-        <input name="user-mail" id="user-mail" type="email" class="feedback-form__input" maxlength="50" required>
+        <input name="user-mail" id="user-mail" type="email" class="feedback-form__input"
+               data-ng-model="usermail" maxlength="50" required>
         <label class="feedback-form__label" for="user-mail">Ваша почта для ответа</label>
       </div>
 
       <div class="feedback-form__form-group">
-        <textarea name="user-message" id="user-message" class="feedback-form__textarea" maxlength="500" required></textarea>
-        <label class="feedback-form__label" for="user-message">Напишите что-нибудь...</label>
+        <textarea name="user-message" id="user-message" class="feedback-form__textarea"
+                  data-ng-model="usermessage" maxlength="500" required>
+        </textarea>
+        <label class="feedback-form__label" for="user-message">Напишите что-нибудь&hellip;</label>
       </div>
 
       <div class="text-right">
-        <input type="submit" class="btn btn--primary" value="Отправить">
+        <input type="submit" class="btn btn--primary" value="Отправить" data-ng-disabled="feedbackForm.$invalid">
       </div>
     </form>
+
   </div>
 </article>

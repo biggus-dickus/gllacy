@@ -5,7 +5,7 @@
 
   function ModalsController() {
     this.showModal = function(elemId) {
-      var modalId = document.querySelector(elemId);
+      var modalId = document.getElementById(elemId);
 
       if (modalId) {
         modalId.classList.add('open');
@@ -14,7 +14,7 @@
     };
 
     this.hideModal = function(elemId) {
-      var modalId = document.querySelector(elemId);
+      var modalId = document.getElementById(elemId);
 
       if (modalId && modalId.classList.contains('open')) {
         modalId.classList.remove('open');

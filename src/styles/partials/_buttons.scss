@@ -24,7 +24,9 @@ $btn-fz: 18px;
     background: #dedede;
     box-shadow: none;
     text-shadow: none;
-    pointer-events: none;
+    cursor: not-allowed;
+
+    &:hover {  background: #dedede;  }
   }
 
   &:active {  transform: translateY(1px);  }

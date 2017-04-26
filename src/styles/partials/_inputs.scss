@@ -31,4 +31,13 @@
     outline: none;
     box-shadow: inset 0 0 0 1px get-color(accent, blue, .52);
   }
+
+  &:valid,
+  &.ng-valid.ng-touched {
+    box-shadow: inset 0 0 0 1px get-color(secondary, green, .52);
+  }
+
+  &.ng-invalid.ng-touched {
+    box-shadow: inset 0 0 0 1px get-color(secondary, red);
+  }
 }
