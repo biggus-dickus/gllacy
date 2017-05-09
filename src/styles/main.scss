@@ -14,6 +14,7 @@
 
 // Partials
 @import "partials/animations";
+@import "partials/breadcrumbs";
 @import "partials/buttons";
 @import "partials/catalog";
 @import "partials/fonts";
@@ -24,6 +25,7 @@
 @import "partials/links";
 @import "partials/menu";
 @import "partials/modals";
+@import "partials/pagination";
 @import "partials/typography";
 @import "partials/scaffolding";
 @import "partials/utils";
@@ -31,6 +33,7 @@
 // Feature components
 @import "features/about";
 @import "features/blog";
-@import "features/feedback-form";
 @import "features/map";
 @import "features/specials";
+@import "forms/feedback-form";
+@import "forms/filter-form";

@@ -1,8 +1,9 @@
-// This function has to be in global scope in order to initialize map from HTML
+'use strict';
 
+// This function has to be in global scope in order to initialize map from HTML
 function initMap() {
   var academy = {lat: 59.938614, lng: 30.323032},
-    mapNode = document.getElementById('google-map');
+      mapNode = document.getElementById('google-map');
 
   if (mapNode) {
     var map = new google.maps.Map(mapNode, {
@@ -19,11 +20,13 @@ function initMap() {
   }
 }
 
-var closeMapAddress = document.getElementById('map-address-close');
+(function() {
+  var closeMapAddress = document.getElementById('map-address-close');
 
-if (closeMapAddress) {
-  closeMapAddress.addEventListener('click', function(evt) {
-    evt.preventDefault();
-    this.parentNode.style.display = 'none';
-  });
-}
+  if (closeMapAddress) {
+    closeMapAddress.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      this.parentNode.style.display = 'none';
+    });
+  }
+})();

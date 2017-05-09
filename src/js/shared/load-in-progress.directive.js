@@ -9,12 +9,13 @@
         showSpinner: '=loadInProgress'
       },
       link: function(scope, elem) {
-        scope.$watch('showSpinner', function (showSpinner) {
-          if (showSpinner) {
-            elem.append('<div class="loader"></div>');
-          } else {
-            elem.find('.loader').remove();
-          }
+        scope.$watch('showSpinner', function(showSpinner) {
+          // var loader = '<div class="loader"></div>';
+          var loader = document.createElement('div');
+          loader.className = 'loader';
+
+          showSpinner ? elem.append(loader) : elem.find(loader).remove();
+
         });
       }
     };

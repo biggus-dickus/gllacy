@@ -15,7 +15,7 @@ $btn-fz: 18px;
   outline: none;
   cursor: pointer;
   @include button-size($btn-vert-padding, $btn-horiz-padding, $btn-fz, 1, $btn-border-radius);
-  @include transition($property: #{color, background});
+  @include transition($property: #{color, border-color, background});
 
   &:disabled,
   &:disabled[class*="btn--"] {
@@ -44,6 +44,27 @@ $btn-fz: 18px;
       color: #fceeec;
       background-image: linear-gradient(#d74531, #e1613e);
       box-shadow: 0 0.11em 0.11em #942718 inset;
+    }
+  }
+
+  &.btn--plain {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border: 2px solid get-color(primary, light, .8);
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-color-base;
+    background-color: fade-out($text-color-base, .8);
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      color: $text-color-secondary;
+      background-color: darken($text-color-base, 7%);
+    }
+
+    &:active {
+      box-shadow: 0 -2px 1px lighten($text-color-secondary, 21.5%);
     }
   }
 }

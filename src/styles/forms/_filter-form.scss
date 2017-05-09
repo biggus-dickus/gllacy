@@ -1,0 +1,158 @@
+.filter-form {
+  max-width: 860px;
+  margin-bottom: 40px;
+
+  &-wrap {  padding-top: 20px;  }
+
+  &__group {
+    margin-bottom: 1rem;
+    font-size: 0;
+
+    &:last-child {  margin-bottom: 0;  }
+  }
+
+  &__radio {  @extend .radio;  }
+
+  &__checkbox {  @extend .checkbox;  }
+
+  &__label {
+    &.filter-form__label--checkbox:not(:last-child) {  margin-right: 1.3125rem;  }
+    &.filter-form__label--radio:not(:last-child) {  margin-right: 1.1rem;  }
+  }
+
+  &__fieldset {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 1rem 0 0;
+    border: 0;
+
+    &:last-child {  margin-right: 0;  }
+
+    &.filter-form__fieldset--select {
+      min-width: 193px;
+      padding: 0;
+
+      label {  display: block;  }
+    }
+  }
+
+  &__fieldset-inner {
+    padding: .49rem .97rem;
+    border-radius: 1.5rem;
+    background-color: get-color(secondary, light, .2);
+  }
+
+  &__legend {
+    padding-left: 1em;
+    margin-bottom: .5em;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.125;
+  }
+
+  &__select {
+    width: 100%;
+    padding: .49rem .97rem;
+    border: 0;
+    border-radius: 1.5rem;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.125;
+    background: get-color(secondary, light, .2) no-repeat calc(100% - 15px) 50% / 9px 7px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'><path fill='#fff' d='M.56.99h7.8L4.52 6.01h-.13z'/></svg>");
+    cursor: pointer;
+    @include transition();
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &::-ms-expand {  display: none;  }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $text-color-secondary;
+      background-color: get-color(primary, light);
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'><path fill='#323232' d='M.56.99h7.8L4.52 6.01h-.13z'/></svg>");
+    }
+
+    option {
+      font-size: 14px;
+      line-height: 1.142;
+      color: $text-color-secondary;
+    }
+  }
+
+  &__submit {
+    @extend .btn;
+    @extend .btn--plain;
+    min-width: 150px;
+    margin-top: 1.3125em;
+  }
+}
+
+// Price filter widget
+.range-filter {
+  min-width: 218px;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__price-controls {
+    @extend .filter-form__legend;
+    display: flex;
+    align-items: baseline;
+
+    .range-filter & {  margin-bottom: 4px;  } // override the pesky margin
+  }
+
+  &__input {
+    @extend .numeric-as-text;
+    display: inline-block;
+    max-width: 36px;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-align: center;
+    background: none;
+  }
+
+  &__range-controls {
+    @extend .filter-form__fieldset-inner;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 36px;
+  }
+
+  &__bar {
+    width: 70%;
+    height: 4px;
+    background-color: get-color(primary, light);
+  }
+
+  &__scale {
+    width: 100%;
+    height: 4px;
+    background-color: get-color(primary, light, .2);
+  }
+
+  &__toggle {
+    @include centering-absolute(vertical);
+    @include transition(transform);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: get-color(secondary, light);
+    box-shadow: 0 2px 2px get-color(accent, dark, .1);
+    cursor: pointer;
+
+    &:hover {  transform: scale(1.14);  }
+
+    &.range-filter__toggle--min {  left: 50px;  }
+    &.range-filter__toggle--max {  left: 110px;  }
+  }
+}

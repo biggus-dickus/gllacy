@@ -25,6 +25,7 @@
     "rimraf": "^2.5.2"
   },
   "devDependencies": {
+    "gulp-sourcemaps": "^2.6.0",
     "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0",
     "postcss-reporter": "^3.0.0",

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   min-height: 100px;
-  padding-top: 20px;
+  padding-top: 35px;
   padding-bottom: 25px;
+  border-top: 1px solid get-color(primary, light, .3);
 
   &__links {
     @extend .ib;
@@ -37,6 +38,8 @@
   &__logo-link {
 
     &:hover {  opacity: .7;  }
+
+    &:active {  opacity: .5;  }
   }
 }
 

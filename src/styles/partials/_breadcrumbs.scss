@@ -1,0 +1,28 @@
+.breadcrumbs {
+  &__list {  @extend .ib;  }
+
+  &__item {
+    @extend .ib__item;
+    font-size: 14px;
+    line-height: 1.125;
+
+    &:not(:last-child)::after {
+      content: "»";
+      margin-right: .4em;
+      margin-left: .4em;
+    }
+  }
+
+  &__link {
+    @extend .link;
+
+    &.breadcrumbs__link--current {
+      background: none;
+
+      &:hover {
+        color: inherit;
+        background: none;
+      }
+    }
+  }
+}

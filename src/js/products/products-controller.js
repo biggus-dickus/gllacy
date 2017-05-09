@@ -9,7 +9,6 @@
     var self = this;
 
     this.products = {};
-    this.featuredProducts = {};
     this.loading = true;
 
     FetchData.getData('/data/products.json')
@@ -25,5 +24,4 @@
         self.loading = false;
       });
   }
-
 })();

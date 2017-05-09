@@ -31,17 +31,21 @@
   input.feedback-form__input,
   textarea.feedback-form__textarea {  font-size: 16px;  }
 
+  // Validation & interactive states
   &__input,
   &__textarea {
     &:focus + .feedback-form__label,
-    &:valid + .feedback-form__label {
+    &:valid + .feedback-form__label,
+    &.ng-invalid.ng-touched + .feedback-form__label {
       top: -17px;
       font-size: 11px;
     }
 
     &:focus + .feedback-form__label {  color: get-color(accent, blue, .52);  }
 
-    &:valid + .feedback-form__label {  color: get-color(accent, light);  }
+    &:valid + .feedback-form__label {  color: get-color(secondary, green);  }
+
+    &.ng-invalid.ng-touched + .feedback-form__label {  color: get-color(secondary, red);  }
   }
 
   &__label {

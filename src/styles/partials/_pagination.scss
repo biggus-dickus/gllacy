@@ -1,0 +1,52 @@
+.pagination {
+  @extend .ib;
+  text-align: right;
+  margin-bottom: 30px;
+
+  &__item {
+    @extend .ib__item;
+    margin-right: 5px;
+
+    &:first-child a,
+    &:last-child a {
+      position: relative;
+      text-indent: -9999px;
+
+      &::after {
+        @include centering-absolute();
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-bottom: 2px solid currentColor;
+        border-left: 2px solid currentColor;
+      }
+    }
+
+    &:first-child a::after {  transform: rotate(45deg);  }
+    &:last-child a::after {  transform: rotate(-135deg);  }
+  }
+
+  &__link {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+
+    &:not(.inactive):not(.current):hover {
+      background-color: get-color(primary, light, .2);
+    }
+
+    &.current {
+      color: $text-color-secondary;
+      background-color: $text-color-base;
+    }
+
+    &.inactive {  opacity: .2;  }
+  }
+}

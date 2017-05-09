@@ -34,8 +34,6 @@ object {
   height: auto;
 }
 
-input[type='number'] { -moz-appearance: textfield; }
-
 // Placeholders and Overflow
 input[placeholder] { text-overflow: ellipsis; }
 ::-moz-placeholder { text-overflow: ellipsis; } // FF 19+
