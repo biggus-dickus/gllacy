@@ -18,7 +18,13 @@
         margin-bottom: 30px;
       }
 
-      a {  color: inherit;  }
+      a {
+        color: inherit;
+        @include breakpoint(max-width $lg) {
+          padding-right: 5px;
+          background-color: get-color(primary, light, .8);
+        }
+      }
 
       a:hover {  text-decoration: none;  }
     }

@@ -9,7 +9,9 @@
     @extend .title;
     font-weight: 600;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+
+    @include breakpoint(max-width $sm) {  font-size: 18px;  }
   }
 }
 
@@ -18,21 +20,21 @@
 
   &__item {
     position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 48.94%;
     padding-top: 10px;
     padding-left: 55px;
-    margin-right: 2.11%;
+    margin-top: 10px;
     font-size: 1rem;
 
-    &:nth-child(2n) {
-      margin-right: 0;
+    @include breakpoint(min-width $md) {
+      display: inline-block;
+      vertical-align: top;
+      width: 48.94%;
+      margin-right: 2.11%;
+
+      &:nth-child(2n) {  margin-right: 0;  }
     }
 
-    &:nth-child(n + 3) {
-      margin-top: 10px;
-    }
+    @include breakpoint(max-width $sm) {  font-size: 14px;  }
 
     &::before {
       content: "";

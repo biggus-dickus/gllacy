@@ -2,18 +2,52 @@
   display: flex;
   justify-content: space-between;
   min-height: 100px;
-  padding-top: 35px;
+  padding-top: 20px;
   padding-bottom: 25px;
   border-top: 1px solid get-color(primary, light, .3);
 
+  @include breakpoint(max-width $lg) {  flex-wrap: wrap;  }
+
+  &__socials {
+    @include breakpoint(min-width $md) {  margin-top: 20px;  }
+    @include breakpoint($sm $md) {  align-self: center;  }
+  }
+
   &__links {
     @extend .ib;
-    max-width: 350px;
+    margin-top: 15px;
+
+    @include breakpoint(min-width $md) {  max-width: 345px;  }
+
+    @include breakpoint(max-width $md) {
+      order: -1;
+      width: 100%;
+      margin-bottom: 30px;
+    }
   }
 
   &__links-item {
-    @extend .ib__item;
-    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+
+    @include breakpoint(max-width $lg) {  width: 50%;  }
+
+    &:first-child,
+    &:nth-child(2) {  margin-bottom: 4px;  }
+
+    &:nth-child(odd) {  padding-left: 20px;  }
+
+    &.footer__links-item--heart {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 3px;  left: 0;
+        @include sprite($heart);
+      }
+    }
 
     a {
       font-size: 13px;
@@ -48,8 +82,9 @@
 
   &__item {
     @extend .ib__item;
-    margin-right: 15px;
+    margin-right: 11px;
     text-indent: -9999px;
+    @include breakpoint($md $lg) {  margin-right: 7px;  }
 
     &:last-child {  margin-right: 0;  }
   }

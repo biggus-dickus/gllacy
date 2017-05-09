@@ -2,11 +2,13 @@
   max-width: 860px;
   margin-bottom: 40px;
 
-  &-wrap {  padding-top: 20px;  }
-
   &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 1rem;
     font-size: 0;
+    @include breakpoint(max-width $lg) {  flex-wrap: wrap;  }
 
     &:last-child {  margin-bottom: 0;  }
   }
@@ -16,28 +18,42 @@
   &__checkbox {  @extend .checkbox;  }
 
   &__label {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
     &.filter-form__label--checkbox:not(:last-child) {  margin-right: 1.3125rem;  }
     &.filter-form__label--radio:not(:last-child) {  margin-right: 1.1rem;  }
   }
 
   &__fieldset {
-    display: inline-block;
-    vertical-align: bottom;
-    margin: 0 1rem 0 0;
+    margin: 0;
     border: 0;
 
-    &:last-child {  margin-right: 0;  }
+    @include breakpoint(min-width $lg) {  margin-right: .45rem;  }
+    @include breakpoint(max-width $lg) {  flex-grow: 1;  }
+
+    &:last-child {
+      margin-right: 0;
+      @include breakpoint(max-width $lg) {  margin-top: 1rem;  }
+    }
 
     &.filter-form__fieldset--select {
       min-width: 193px;
       padding: 0;
+
+      @include breakpoint($sm $lg) {  margin-right: 1rem;  }
+      @include breakpoint(max-width $sm) {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
 
       label {  display: block;  }
     }
   }
 
   &__fieldset-inner {
-    padding: .49rem .97rem;
+    padding-right: .97rem;
+    padding-left: .97rem;
     border-radius: 1.5rem;
     background-color: get-color(secondary, light, .2);
   }
@@ -86,8 +102,13 @@
   &__submit {
     @extend .btn;
     @extend .btn--plain;
-    min-width: 150px;
+    min-width: 145px;
     margin-top: 1.3125em;
+
+    @include breakpoint(max-width $sm) {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 
@@ -129,8 +150,9 @@
   }
 
   &__bar {
-    width: 70%;
+    width: 30%; // will be inline
     height: 4px;
+    margin-left: 20%; // will be inline
     background-color: get-color(primary, light);
   }
 
@@ -152,7 +174,7 @@
 
     &:hover {  transform: scale(1.14);  }
 
-    &.range-filter__toggle--min {  left: 50px;  }
-    &.range-filter__toggle--max {  left: 110px;  }
+    &.range-filter__toggle--min {  left: 20%;  } // both will be inline
+    &.range-filter__toggle--max {  left: 45%;  }
   }
 }

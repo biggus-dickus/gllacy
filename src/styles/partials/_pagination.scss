@@ -15,8 +15,8 @@
       &::after {
         @include centering-absolute();
         content: "";
-        width: 7px;
-        height: 7px;
+        width: 9px;
+        height: 9px;
         border-bottom: 2px solid currentColor;
         border-left: 2px solid currentColor;
       }
@@ -24,6 +24,10 @@
 
     &:first-child a::after {  transform: rotate(45deg);  }
     &:last-child a::after {  transform: rotate(-135deg);  }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__link {

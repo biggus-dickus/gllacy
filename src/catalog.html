@@ -26,72 +26,70 @@
 
     <h1 class="page-header">Сливочное мороженое</h1>
 
-    <div class="filter-form-wrap">
-      <form action="?" method="get" class="filter-form">
-        <div class="filter-form__group">
-          <fieldset class="filter-form__fieldset filter-form__fieldset--select">
-            <label for="sort-type" class="filter-form__legend">Сортировка:</label>
-            <select name="sort-type" id="sort-type" class="filter-form__select">
-              <option value="popularity">по популярности</option>
-              <option value="cheap-first">сначала недорогие</option>
-              <option value="expensive-first">сначала дорогие</option>
-              <option value="fat-content">по жирности</option>
-            </select>
-          </fieldset>
+    <form action="?" method="get" class="filter-form">
+      <div class="filter-form__group">
+        <fieldset class="filter-form__fieldset filter-form__fieldset--select">
+          <label for="sort-type" class="filter-form__legend">Сортировка:</label>
+          <select name="sort-type" id="sort-type" class="filter-form__select">
+            <option value="popularity">по популярности</option>
+            <option value="cheap-first">сначала недорогие</option>
+            <option value="expensive-first">сначала дорогие</option>
+            <option value="fat-content">по жирности</option>
+          </select>
+        </fieldset>
 
-          <fieldset class="filter-form__fieldset range-filter">
-            <div class="range-filter__price-controls">
-              <h4 class="range-filter__title">Цена:</h4>
-              <input class="range-filter__input" name="min-price" type="number" value="100">
-              <span class="range-filter__price-unit">руб.&nbsp;&mdash;</span>
-              <input class="range-filter__input" name="max-price" type="number" value="500">
-              <span class="range-filter__price-unit">руб.</span>
-            </div>
+        <fieldset class="filter-form__fieldset range-filter">
+          <div class="range-filter__price-controls">
+            <h4 class="range-filter__title">Цена:</h4>
+            <input class="range-filter__input" name="min-price" type="number" value="100">
+            <span class="range-filter__price-unit">руб.&nbsp;&mdash;</span>
+            <input class="range-filter__input" name="max-price" type="number" value="500">
+            <span class="range-filter__price-unit">руб.</span>
+          </div>
 
-            <div class="range-filter__range-controls">
-              <div class="range-filter__scale">
-                <div class="range-filter__bar" style="margin-left: 20%; width: 30%"></div>
-              </div>
-              <i class="range-filter__toggle range-filter__toggle--min"></i>
-              <i class="range-filter__toggle range-filter__toggle--max"></i>
+          <div class="range-filter__range-controls">
+            <div class="range-filter__scale">
+              <div class="range-filter__bar"></div>
             </div>
-          </fieldset>
+            <i class="range-filter__toggle range-filter__toggle--min"></i>
+            <i class="range-filter__toggle range-filter__toggle--max"></i>
+          </div>
+        </fieldset>
 
-          <fieldset class="filter-form__fieldset">
-            <legend class="filter-form__legend">Жирность:</legend>
-            <div class="filter-form__fieldset-inner">
-              <input class="filter-form__radio" id="fat-0" value="fat-0" type="radio" name="fat-content">
-              <label class="filter-form__label filter-form__label--radio" for="fat-0">0%</label>
-              <input class="filter-form__radio" id="fat-10" value="fat-10" type="radio" name="fat-content" checked>
-              <label class="filter-form__label filter-form__label--radio" for="fat-10">до&nbsp;10%</label>
-              <input class="filter-form__radio" id="fat-30" value="fat-30" type="radio" name="fat-content">
-              <label class="filter-form__label filter-form__label--radio" for="fat-30">до&nbsp;30%</label>
-              <input class="filter-form__radio" id="fat-30+" value="fat-30+" type="radio" name="fat-content">
-              <label class="filter-form__label filter-form__label--radio" for="fat-30+">выше 30%</label>
-            </div>
-          </fieldset>
-        </div>
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Жирность:</legend>
+          <div class="filter-form__fieldset-inner">
+            <input class="filter-form__radio" id="fat-0" value="fat-0" type="radio" name="fat-content">
+            <label class="filter-form__label filter-form__label--radio" for="fat-0">0%</label>
+            <input class="filter-form__radio" id="fat-10" value="fat-10" type="radio" name="fat-content" checked>
+            <label class="filter-form__label filter-form__label--radio" for="fat-10">до&nbsp;10%</label>
+            <input class="filter-form__radio" id="fat-30" value="fat-30" type="radio" name="fat-content">
+            <label class="filter-form__label filter-form__label--radio" for="fat-30">до&nbsp;30%</label>
+            <input class="filter-form__radio" id="fat-30+" value="fat-30+" type="radio" name="fat-content">
+            <label class="filter-form__label filter-form__label--radio" for="fat-30+">выше 30%</label>
+          </div>
+        </fieldset>
+      </div>
 
-        <div class="filter-form__group">
-          <fieldset class="filter-form__fieldset">
-            <legend class="filter-form__legend">Наполнители:</legend>
-            <div class="filter-form__fieldset-inner">
-              <input class="filter-form__checkbox" type="checkbox" id="chocolate-filler" name="chocolate-filler" checked>
-              <label class="filter-form__label filter-form__label--checkbox" for="chocolate-filler">шоколадные</label>
-              <input class="filter-form__checkbox" type="checkbox" id="sugar-filler" name="sugar-filler" checked>
-              <label class="filter-form__label filter-form__label--checkbox" for="sugar-filler">сахарные присыпки</label>
-              <input class="filter-form__checkbox" type="checkbox" id="fruit-filler" name="fruit-filler">
-              <label class="filter-form__label filter-form__label--checkbox" for="fruit-filler">фрукты</label>
-              <input class="filter-form__checkbox" type="checkbox" id="syrup-filler" name="syrup-filler">
-              <label class="filter-form__label filter-form__label--checkbox" for="syrup-filler">сиропы</label>
-              <input class="filter-form__checkbox" type="checkbox" id="jam-filler" name="jam-filler">
-              <label class="filter-form__label filter-form__label--checkbox" for="jam-filler">джемы</label>
-            </div>
-          </fieldset>
-          <input type="submit" class="filter-form__submit" value="Применить">
-        </div>
-      </form>
-    </div>
+      <div class="filter-form__group">
+        <fieldset class="filter-form__fieldset">
+          <legend class="filter-form__legend">Наполнители:</legend>
+          <div class="filter-form__fieldset-inner">
+            <input class="filter-form__checkbox" type="checkbox" id="chocolate-filler" name="chocolate-filler" checked>
+            <label class="filter-form__label filter-form__label--checkbox" for="chocolate-filler">шоколадные</label>
+            <input class="filter-form__checkbox" type="checkbox" id="sugar-filler" name="sugar-filler" checked>
+            <label class="filter-form__label filter-form__label--checkbox" for="sugar-filler">сахарные присыпки</label>
+            <input class="filter-form__checkbox" type="checkbox" id="fruit-filler" name="fruit-filler">
+            <label class="filter-form__label filter-form__label--checkbox" for="fruit-filler">фрукты</label>
+            <input class="filter-form__checkbox" type="checkbox" id="syrup-filler" name="syrup-filler">
+            <label class="filter-form__label filter-form__label--checkbox" for="syrup-filler">сиропы</label>
+            <input class="filter-form__checkbox" type="checkbox" id="jam-filler" name="jam-filler">
+            <label class="filter-form__label filter-form__label--checkbox" for="jam-filler">джемы</label>
+          </div>
+        </fieldset>
+        <input type="submit" class="filter-form__submit" value="Применить">
+      </div>
+    </form>
 
     <div data-ng-controller="ProductsController as ctrl">
       <products-list data-products="ctrl.products">
