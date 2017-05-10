@@ -10,16 +10,13 @@
       },
       link: function(scope, elem) {
 
-        console.log(elem);
-
         scope.$watch('showSpinner', function(showSpinner) {
-          var loader = document.createElement('div');
+          var loader = document.createElement('div'),
+              element = elem[0];
+
           loader.className = 'loader';
 
-          // showSpinner ? elem.append(loader) : elem.find(loader).remove();
-
-          showSpinner ? elem[0].appendChild(loader) : elem[0].removeChild(elem[0].children[elem[0].children.length - 1]);
-
+          showSpinner ? element.appendChild(loader) : element.children[element.children.length - 1].remove();
         });
       }
     };
