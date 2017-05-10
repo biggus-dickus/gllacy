@@ -4,7 +4,7 @@ const gulp = require('gulp'),
 
     // Compiling with bells & whistles
     sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
+    autoprefixer = require('autoprefixer'),
     cmq = require('gulp-combine-mq'),
     cssnano = require('gulp-cssnano'),
     rimraf = require('rimraf'),
@@ -30,9 +30,12 @@ gulp.task('css:dev', function() {
       .pipe(sass(
           { sourceComments: true }
       ).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: ['last 2 versions']
-      }))
+      .pipe(postcss([ autoprefixer(
+          {
+              remove: false,
+              grid: true
+          }
+      ) ]))
       .pipe(cmq())
       .pipe(gulp.dest(path.build.css))
       .pipe(browserSync.stream());
@@ -42,9 +45,12 @@ gulp.task('css:dev', function() {
 gulp.task('css:prod', function() {
   gulp.src(path.src.styles)
       .pipe(sass().on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: ['last 3 versions']
-      }))
+      .pipe(postcss([ autoprefixer(
+          {
+              remove: false,
+              grid: true
+          }
+      ) ]))
       .pipe(cmq())
       .pipe(cssnano())
       .pipe(gulp.dest(path.build.css))
