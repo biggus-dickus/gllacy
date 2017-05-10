@@ -3,7 +3,8 @@
 
   angular.module('glApp').component('productsList', {
     bindings: {
-      products: '<'
+      products: '<',
+      loading: '<'
     },
     templateUrl: '../templates/products.tpl.html'
   });

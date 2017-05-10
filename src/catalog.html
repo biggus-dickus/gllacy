@@ -92,7 +92,7 @@
     </form>
 
     <div data-ng-controller="ProductsController as ctrl">
-      <products-list data-products="ctrl.products">
+      <products-list data-products="ctrl.products" data-loading="ctrl.loading">
         <div class="loader"></div>
       </products-list>
     </div>
