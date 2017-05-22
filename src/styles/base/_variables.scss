@@ -33,6 +33,9 @@ $text-color-secondary: get-color(primary, dark);
 $background-color-base: get-color(primary);
 $transparent-white: get-color(primary, light, 0.4);
 
+// Path variables
+$img-dir: "../img";
+
 
 // Breakpoints
 $xs: 320px;

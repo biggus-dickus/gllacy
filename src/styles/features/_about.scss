@@ -3,7 +3,7 @@
   border-radius: 1rem;
   margin-bottom: 40px;
   color: $text-color-secondary;
-  background: url("../img/bg/waffle-res.png") 0 0 repeat;
+  background: url("#{$img-dir}/bg/waffle-res.png") 0 0 repeat;
 
   &__title {
     @extend .title;

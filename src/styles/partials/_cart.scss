@@ -1,0 +1,94 @@
+.cart {
+  @extend %dropdown-form;
+  padding: 20px 15px 20px 17px;
+  font-size: 13px;
+  line-height: 1.23;
+  color: $text-color-secondary;
+
+  @include breakpoint(min-width $md) {  width: 540px;  }
+  @include breakpoint(max-width $md) {  width: 290px;  }
+
+  &__summary {
+    border-top: 1px solid #cacac7;
+    text-align: right;
+  }
+
+  &__total {
+    display: block;
+    font-size: 15px;
+    line-height: 1.2;
+    margin-top: 1.1em;
+    margin-bottom: .9em;
+  }
+}
+
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1.39em;
+
+  &__remove {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: none;
+    text-indent: -999em;
+    opacity: .7;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include breakpoint(min-width $md) {  margin-right: 14px;  }
+    @include breakpoint(max-width $md) {  margin-right: 7px;  }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;  right: 0;  bottom: 0;  left: 0;
+      background: url("#{$img-dir}/icons/close-cross.svg") 50% 50% no-repeat;
+      background-size: contain;
+    }
+
+    &:hover {  opacity: 1;  }
+  }
+
+  &__img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin-right: 14px;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 400;
+
+    @include breakpoint(min-width $md) {
+      width: 235px;
+      margin-right: 20px;
+    }
+
+    @include breakpoint(max-width $md) {  width: 74%;  }
+  }
+
+  &__quantity,
+  &__price {
+    @include breakpoint(max-width $md) {  margin-top: .75em;  }
+  }
+
+  &__quantity {
+    margin-right: 20px;
+
+    @include breakpoint(max-width $md) {
+      margin-left: 65px;
+      margin-right: auto;
+    }
+
+    mark {
+      color: get-color(accent, light);
+      background-color: transparent;
+    }
+  }
+
+  &__price {  font-style: normal;  }
+}

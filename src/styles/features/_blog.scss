@@ -11,7 +11,7 @@
       @extend .col-half__left;
       padding: 25px 22.35% 25px 20px;
       color: $text-color-secondary;
-      background: #fff url("../img/bg/strawberry.jpg") no-repeat 100% 0 / cover;
+      background: #fff url("#{$img-dir}/bg/strawberry.jpg") no-repeat 100% 0 / cover;
 
       @include breakpoint(max-width $md) {
         padding-right: 33.33%;

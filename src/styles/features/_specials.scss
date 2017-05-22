@@ -15,12 +15,12 @@
     &.specials__offer--raspberry {
       @extend .col-half__left;
       @include breakpoint(max-width $md) {  margin-bottom: 30px;  }
-      background: #93061a url("../img/bg/raspberry.png") 0 0 / cover;
+      background: #93061a url("#{$img-dir}/bg/raspberry.png") 0 0 / cover;
     }
 
     &.specials__offer--chocolate {
       @extend .col-half__right;
-      background: #643d2b url("../img/bg/chocolate.png") 0 0 / cover;
+      background: #643d2b url("#{$img-dir}/bg/chocolate.png") 0 0 / cover;
     }
   }
 
